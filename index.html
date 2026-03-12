@@ -7,307 +7,419 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="navbar">
-    <div class="container nav-content">
-      <div class="logo">
-        <span class="logo-mark">IQ</span>
-        <span class="logo-text">Impact IQ</span>
+  <div class="page-bg">
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="site-shell">
+    <header class="navbar glass reveal">
+      <div class="brand">
+        <div class="brand-mark">IQ</div>
+        <div>
+          <p class="brand-title">Impact IQ</p>
+          <p class="brand-subtitle">Corporate role simulation</p>
+        </div>
       </div>
 
       <nav class="nav-links">
         <a href="#about">About</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#agile">Agile Learning</a>
+        <a href="#how">How It Works</a>
         <a href="#roles">Roles</a>
+        <a href="#learning">Why Impact IQ</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="#cta" class="btn btn-outline">Learn More</a>
-      </div>
-    </div>
-  </header>
+      <button class="btn btn-primary" id="openSimulationTop">
+        Choose Simulation
+        <span>→</span>
+      </button>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">Corporate Simulation Learning Platform</p>
+    <main>
+      <section class="hero">
+        <div class="hero-left reveal">
+          <div class="eyebrow-pill">
+            <span>✦</span>
+            Workplace simulation platform
+          </div>
+
           <h1>Train Your Corporate Decision Skills Before You Enter the Workplace</h1>
+
           <p class="hero-text">
-            Impact IQ is a simulation game where users step into real corporate roles and
-            experience Agile project environments.
-          </p>
-          <p class="hero-text secondary">
-            Face workplace situations like sprint planning, requirement discussions, team
-            collaboration, and stakeholder communication. See how your decisions affect
-            team performance, project progress, and stakeholder satisfaction.
+            Impact IQ is a simulation platform where users step into real corporate roles and experience corporate project environments.
           </p>
 
-          <div class="hero-buttons">
-            <a href="#cta" class="btn btn-primary">Start Simulation</a>
-            <a href="#how-it-works" class="btn btn-secondary">Learn How It Works</a>
+          <p class="hero-text">
+            Players make decisions during sprint planning, requirement discussions, team collaboration, and stakeholder communication.
+          </p>
+
+          <p class="hero-text">
+            The platform helps users understand how decisions influence team performance, project progress, and stakeholder satisfaction.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="openSimulationHero">
+              Choose Simulation
+              <span>→</span>
+            </button>
+
+            <a href="#how" class="btn btn-secondary">Learn How It Works</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="dashboard-card">
-            <div class="dashboard-top">
-              <span class="status-dot"></span>
-              <span>Simulation Preview</span>
-            </div>
+        <div class="hero-right glass reveal">
+          <div class="panel-top-line"></div>
+          <div class="mission-badge">Mission Hub</div>
 
-            <div class="metric-grid">
-              <div class="metric">
-                <h3>Team Trust</h3>
-                <p>84%</p>
-              </div>
-              <div class="metric">
-                <h3>Project Progress</h3>
-                <p>72%</p>
-              </div>
-              <div class="metric">
-                <h3>Stakeholder Satisfaction</h3>
-                <p>79%</p>
-              </div>
-              <div class="metric">
-                <h3>Decision Impact</h3>
-                <p>High</p>
-              </div>
+          <div class="card-header">
+            <div>
+              <p class="mini-label">Simulation Interface</p>
+              <h3>Choose Your Role</h3>
             </div>
+            <span class="step-badge">Step 1</span>
+          </div>
 
-            <div class="mini-scenario">
-              <p class="mini-label">Scenario</p>
-              <p>
-                A stakeholder requests urgent changes during sprint execution. What do you do?
-              </p>
-              <div class="scenario-tags">
-                <span>Agile</span>
-                <span>Communication</span>
-                <span>Prioritisation</span>
-              </div>
-            </div>
+          <p class="panel-text">Select a role in the project team to start the simulation.</p>
+
+          <div class="hero-role-list" id="heroRoleList"></div>
+
+          <div class="next-step-box">
+            <p class="next-step-label">Next Step</p>
+            <p>Review the disclaimer, acknowledge it, and then choose your simulation role.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-heading center">
-          <p class="section-label">About Impact IQ</p>
+      <section id="about" class="content-section glass reveal">
+        <div class="section-title center">
+          <p class="section-eyebrow">About Impact IQ</p>
           <h2>What is Impact IQ?</h2>
         </div>
 
-        <div class="about-box">
+        <div class="section-copy center-copy">
           <p>
-            Impact IQ is an interactive simulation platform designed to help students and
-            fresh professionals understand how modern corporate IT projects operate.
+            Impact IQ is an interactive simulation platform designed to help students and fresh professionals understand how modern corporate IT projects operate.
           </p>
           <p>
-            Many graduates enter their first job without fully understanding how Agile teams
-            collaborate, manage requirements, or resolve workplace challenges.
+            Many graduates enter their first job without fully understanding how project teams collaborate, manage requirements, or resolve workplace challenges.
           </p>
           <p>
-            Impact IQ allows users to step into different professional roles within a project
-            team and experience realistic workplace situations.
+            Instead of only learning theory, players experience corporate project environments where they must make decisions that affect project delivery, team collaboration, and stakeholder outcomes.
+          </p>
+        </div>
+
+        <div class="info-grid" id="aboutCards"></div>
+      </section>
+
+      <section id="how" class="content-section glass reveal">
+        <div class="section-title center">
+          <p class="section-eyebrow">How the Simulation Works</p>
+          <h2>Learn by doing, not just reading</h2>
+        </div>
+
+        <div class="steps-grid" id="stepsGrid"></div>
+      </section>
+
+      <section id="learning" class="content-section glass reveal">
+        <div class="section-title center">
+          <p class="section-eyebrow">Learning Through Project Concepts</p>
+          <h2>Built around real workplace thinking</h2>
+        </div>
+
+        <div class="info-grid" id="learningCards"></div>
+      </section>
+
+      <section class="content-section glass reveal">
+        <div class="section-title center">
+          <p class="section-eyebrow">Simulation Target</p>
+          <h2>Prepare for real corporate team dynamics</h2>
+        </div>
+
+        <div class="target-box">
+          <div class="target-icon">◎</div>
+          <p>
+            Corporate project teams involve different roles, communication styles, and decision priorities. Understanding how these dynamics work is essential for delivering successful projects.
           </p>
           <p>
-            Instead of learning only theoretical concepts, players experience Agile project
-            environments where they must make decisions that affect project delivery,
-            team collaboration, and stakeholder outcomes.
+            Impact IQ helps players practice handling these situations so they can enter real workplaces with stronger decision-making, communication, and collaboration skills.
           </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="how-it-works" class="section alt-bg">
-      <div class="container">
-        <div class="section-heading center">
-          <p class="section-label">How the Simulation Works</p>
-          <h2>Learn by stepping into the project, not just reading about it</h2>
+      <section id="roles" class="content-section glass reveal">
+        <div class="section-title center">
+          <p class="section-eyebrow">Experience Corporate Roles</p>
+          <h2>Explore the project from different perspectives</h2>
         </div>
 
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <h3>Choose Your Role</h3>
-            <p>
-              Select a professional role such as Project Manager, Scrum Master,
-              Business Analyst, HR Executive, Quality Analyst, or Developer.
-            </p>
-            <p>
-              Each role brings a different perspective, responsibility, and challenge.
-            </p>
-          </div>
+        <div class="info-grid" id="rolesGrid"></div>
+      </section>
 
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <h3>Experience Agile Project Situations</h3>
-            <p>
-              Work through realistic corporate scenarios such as sprint planning,
-              requirement clarification, stakeholder conflicts, team communication,
-              and backlog prioritisation.
-            </p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <h3>Make Decisions</h3>
-            <p>
-              Choose how to respond in each situation and observe how your actions
-              influence trust, delivery, communication, and progress.
-            </p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">04</div>
-            <h3>Reflect and Learn</h3>
-            <p>
-              After each scenario, receive feedback that explains how your decisions
-              shaped the outcome and what that means in a real workplace context.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="agile" class="section">
-      <div class="container">
-        <div class="two-column">
-          <div>
-            <div class="section-heading">
-              <p class="section-label">Learning Through Agile Concepts</p>
-              <h2>Understand how modern teams actually work</h2>
-            </div>
-
-            <p class="section-text">
-              Impact IQ incorporates core Agile concepts so players can build practical
-              awareness of how project teams operate in real organisations.
-            </p>
-
-            <div class="feature-list">
-              <div class="feature-item">Iterative learning through repeated scenarios</div>
-              <div class="feature-item">Team collaboration and communication</div>
-              <div class="feature-item">Requirement management and prioritisation</div>
-              <div class="feature-item">Sprint planning and retrospective learning</div>
-              <div class="feature-item">Stakeholder engagement</div>
-            </div>
-          </div>
-
-          <div class="info-panel">
-            <h3>Why this matters</h3>
-            <p>
-              Theory explains terms. Simulation reveals consequences. That is where real
-              understanding starts to click.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt-bg">
-      <div class="container">
-        <div class="two-column">
-          <div>
-            <div class="section-heading">
-              <p class="section-label">Why Cultural Awareness Matters</p>
-              <h2>Projects are built by people, not robots with perfect communication</h2>
-            </div>
-
-            <p class="section-text">
-              Modern project teams are often global, with members from different cultural
-              and linguistic backgrounds. Communication styles, expectations, and decision
-              approaches can vary across teams.
-            </p>
-
-            <p class="section-text">
-              Impact IQ helps players recognise these differences and develop better ways
-              to collaborate in diverse workplace environments.
-            </p>
-          </div>
-
-          <div class="awareness-card">
-            <div class="awareness-item">
-              <h3>Communication Styles</h3>
-              <p>Not everyone speaks with the same level of directness or urgency.</p>
-            </div>
-            <div class="awareness-item">
-              <h3>Expectations</h3>
-              <p>Different team members may interpret ownership, deadlines, and feedback differently.</p>
-            </div>
-            <div class="awareness-item">
-              <h3>Decision Approaches</h3>
-              <p>Some prefer quick action. Others need alignment first. Real teams live in that tension.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="roles" class="section">
-      <div class="container">
-        <div class="section-heading center">
-          <p class="section-label">Experience Corporate Roles</p>
-          <h2>Explore different perspectives inside a project team</h2>
-        </div>
-
-        <div class="roles-grid">
-          <div class="role-card">
-            <h3>Project Manager</h3>
-            <p>Coordinates project progress and ensures goals are delivered.</p>
-          </div>
-          <div class="role-card">
-            <h3>Scrum Master</h3>
-            <p>Supports Agile teams and removes obstacles during the sprint.</p>
-          </div>
-          <div class="role-card">
-            <h3>Business Analyst</h3>
-            <p>Clarifies requirements and connects stakeholders with technical teams.</p>
-          </div>
-          <div class="role-card">
-            <h3>HR Executive</h3>
-            <p>Supports team collaboration and helps manage workplace challenges.</p>
-          </div>
-          <div class="role-card">
-            <h3>Quality Analyst</h3>
-            <p>Ensures product quality and identifies potential risks early.</p>
-          </div>
-          <div class="role-card">
-            <h3>Developer</h3>
-            <p>Builds solutions and works closely with the team to deliver functional outcomes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cta" class="section cta-section">
-      <div class="container">
+      <section id="start" class="content-section glass reveal cta-section">
         <div class="cta-box">
-          <p class="section-label">Start Simulation</p>
-          <h2>Ready to experience how corporate project teams work?</h2>
-          <p>
-            Step into a role, face realistic workplace situations, and see how your
-            decisions influence project outcomes.
+          <div class="panel-top-line"></div>
+          <div class="mission-badge">Mission Hub</div>
+
+          <div class="section-title center">
+            <h2>Ready to experience how corporate project teams work?</h2>
+          </div>
+
+          <p class="center-copy single-line">
+            Step into a role, face realistic workplace situations, and see how your decisions influence project outcomes.
           </p>
-          <p class="cta-highlight">
+
+          <p class="center-copy single-line">
             Start your first simulation and discover your Impact IQ.
           </p>
-          <a href="#" class="btn btn-primary large-btn">Start Simulation</a>
+
+          <button class="btn btn-primary large" id="openSimulationBottom">
+            Choose Simulation
+            <span>→</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer reveal">
+      <p class="footer-title">Impact IQ</p>
+      <p class="footer-text">Learn Project Teams. Understand Workflows. Make Better Decisions.</p>
+    </footer>
+  </div>
+
+  <!-- Disclaimer Modal -->
+  <div class="modal-overlay hidden" id="disclaimerModal">
+    <div class="modal glass modal-medium scale-in">
+      <button class="modal-close" id="closeDisclaimer">×</button>
+
+      <div class="modal-header">
+        <div class="modal-icon">🛡</div>
+        <div>
+          <p class="section-eyebrow left">Disclaimer</p>
+          <h3>Please review before continuing</h3>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container footer-content">
-      <div>
-        <h3>Impact IQ</h3>
-        <p>Learn Agile. Understand Teams. Make Better Decisions.</p>
+      <div class="selected-role-chip hidden" id="selectedRoleChip"></div>
+
+      <div class="modal-content-text">
+        <p>
+          Impact IQ is an educational simulation developed for learning and training purposes. The scenarios presented within the platform are designed to illustrate common situations that may occur in corporate and IT project environments.
+        </p>
+        <p>
+          These scenarios are simplified representations intended to support understanding of decision-making, teamwork, communication, and cross-cultural collaboration within project teams. The outcomes and feedback provided in the simulation are illustrative and do not represent guaranteed or definitive real-world results.
+        </p>
+        <p>
+          Impact IQ does not provide professional, organisational, or management advice. The platform is intended solely to encourage reflection, critical thinking, and awareness of how different decisions may influence project dynamics and team interactions in diverse workplace settings.
+        </p>
       </div>
-      <p class="footer-note">© 2026 Impact IQ. Prototype experience.</p>
-    </div>
-  </footer>
 
+      <label class="checkbox-box">
+        <input type="checkbox" id="acknowledgeCheckbox" />
+        <span>
+          I have read and understood the disclaimer and agree to proceed with the simulation.
+        </span>
+      </label>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="cancelDisclaimer">Cancel</button>
+        <button class="btn btn-primary" id="proceedDisclaimer" disabled>Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Role Picker Modal -->
+  <div class="modal-overlay hidden" id="roleModal">
+    <div class="modal glass modal-large scale-in">
+      <button class="modal-close" id="closeRoleModal">×</button>
+
+      <div class="modal-header between">
+        <div>
+          <p class="section-eyebrow left">Choose Your Role</p>
+          <h3>Choose Your Role</h3>
+          <p class="subtle">
+            Select a role to begin the simulation. Each role represents a different responsibility within a project team. The scenarios you experience will be based on the role you choose.
+          </p>
+        </div>
+        <div class="mission-setup-badge">Mission Setup</div>
+      </div>
+
+      <div class="role-grid" id="roleGrid"></div>
+
+      <div class="selected-role-box">
+        <p class="mini-label">Selected Role</p>
+        <h4 id="selectedRoleTitle">No role selected yet</h4>
+        <p id="selectedRoleNote" class="subtle">
+          Select Project Manager to enable the Start Simulation button.
+        </p>
+      </div>
+
+      <div class="sticky-actions">
+        <p class="subtle">Choose a role to experience the challenges and decisions faced in that position.</p>
+        <button class="btn btn-primary" id="startSimulationBtn" disabled>
+          Start Simulation
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simulation Modal -->
+  <div class="modal-overlay hidden" id="simulationModal">
+    <div class="simulation-shell scale-in">
+      <div class="simulation-top">
+        <div>
+          <p class="section-eyebrow left">Project Manager Simulation</p>
+          <h2 id="roomHeading">Room 1 – Mid-Sprint Request</h2>
+        </div>
+
+        <button class="modal-close sim-close" id="closeSimulation">×</button>
+      </div>
+
+      <div class="simulation-stack">
+        <div class="sim-card glass">
+          <div class="progress-meta">
+            <div>
+              <p class="mini-label">Progress</p>
+              <p class="subtle" id="progressText">Room 1 of 3</p>
+            </div>
+            <div class="progress-percent" id="progressPercent">33%</div>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="roomProgressFill"></div>
+          </div>
+        </div>
+
+        <div class="sim-card glass">
+          <div class="mission-head">
+            <div>
+              <p class="mini-label">Mission</p>
+              <h3 id="missionTitle">Mid-Sprint Leadership Decision</h3>
+            </div>
+            <div class="room-chip" id="roomChip">Room 1</div>
+          </div>
+
+          <div class="situation-box">
+            <p class="mini-label">Situation</p>
+            <div class="scenario-copy" id="scenarioText"></div>
+          </div>
+        </div>
+
+        <div class="sim-card glass">
+          <div class="mission-head">
+            <div>
+              <p class="mini-label">Options</p>
+              <h3>Choose your response</h3>
+            </div>
+          </div>
+
+          <div class="options-list" id="optionsList"></div>
+        </div>
+
+        <div class="sim-card glass hidden" id="resultPanel">
+          <div class="result-top">
+            <div>
+              <p class="mini-label">Impact</p>
+              <h3 id="resultTitle">Result</h3>
+            </div>
+            <div class="result-badge" id="resultBadge">Excellent Approach</div>
+          </div>
+
+          <div class="result-grid">
+            <div class="result-left">
+              <div class="stat-grid">
+                <div class="stat-box">
+                  <p>Team Collaboration</p>
+                  <strong id="teamValue">0</strong>
+                </div>
+                <div class="stat-box">
+                  <p>Stakeholder Impact</p>
+                  <strong id="stakeholderValue">0</strong>
+                </div>
+                <div class="stat-box">
+                  <p>Leadership Confidence</p>
+                  <strong id="leadershipValue">0</strong>
+                </div>
+              </div>
+
+              <div class="explain-box">
+                <p class="mini-label">Why this result</p>
+                <p id="resultReason"></p>
+              </div>
+
+              <div class="best-box">
+                <p class="mini-label">Best approach explanation</p>
+                <p id="bestExplanation"></p>
+              </div>
+            </div>
+
+            <div class="result-right">
+              <div class="impact-panel">
+                <div class="impact-head">
+                  <div>
+                    <p class="mini-label">Room Stats</p>
+                    <h3>Live Impact Panel</h3>
+                  </div>
+                  <div class="score-pill" id="scorePill">+0 Points</div>
+                </div>
+
+                <div class="bar-group">
+                  <div class="bar-meta">
+                    <span>Team Collaboration</span>
+                    <span id="teamBarText">0</span>
+                  </div>
+                  <div class="bar-track">
+                    <div class="bar-fill purple" id="teamBar"></div>
+                  </div>
+                </div>
+
+                <div class="bar-group">
+                  <div class="bar-meta">
+                    <span>Stakeholder Impact</span>
+                    <span id="stakeholderBarText">0</span>
+                  </div>
+                  <div class="bar-track">
+                    <div class="bar-fill green" id="stakeholderBar"></div>
+                  </div>
+                </div>
+
+                <div class="bar-group">
+                  <div class="bar-meta">
+                    <span>Leadership Confidence</span>
+                    <span id="leadershipBarText">0</span>
+                  </div>
+                  <div class="bar-track">
+                    <div class="bar-fill blue" id="leadershipBar"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="score-summary">
+                <p class="mini-label">Score Summary</p>
+                <h3>Impact IQ Score</h3>
+
+                <div class="score-box">
+                  <p>Score for this room</p>
+                  <div class="score-number" id="scoreNumber">+0</div>
+                  <small>Excellent approach = +20, Average approach = +10, Could be better = +5</small>
+                </div>
+
+                <div class="score-actions">
+                  <button class="btn btn-primary hidden" id="nextRoomBtn">Next Room →</button>
+                  <button class="btn btn-secondary hidden" id="finishBtn">Finish Simulation</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
