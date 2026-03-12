@@ -82,7 +82,9 @@ const chooseAnotherRoleBtn = document.getElementById("chooseAnotherRoleBtn");
 const closeImpactModal = document.getElementById("closeImpactModal");
 
 function renderHeroRoles() {
+  if (!heroRoleList) return;
   heroRoleList.innerHTML = "";
+
   roles.slice(0, 4).forEach((role) => {
     const button = document.createElement("button");
     button.className = "hero-role-item";
@@ -101,7 +103,7 @@ function renderHeroRoles() {
 
 function createInfoCard(item) {
   const div = document.createElement("div");
-  div.className = "info-card reveal";
+  div.className = "info-card";
   div.innerHTML = `
     <div class="info-icon">${item.icon}</div>
     <div>
@@ -113,25 +115,30 @@ function createInfoCard(item) {
 }
 
 function renderAboutCards() {
+  if (!aboutCardsEl) return;
   aboutCardsEl.innerHTML = "";
   aboutCards.forEach((item) => aboutCardsEl.appendChild(createInfoCard(item)));
 }
 
 function renderLearningCards() {
+  if (!learningCardsEl) return;
   learningCardsEl.innerHTML = "";
   learningCards.forEach((item) => learningCardsEl.appendChild(createInfoCard(item)));
 }
 
 function renderRolesGrid() {
+  if (!rolesGridEl) return;
   rolesGridEl.innerHTML = "";
   roles.forEach((role) => rolesGridEl.appendChild(createInfoCard(role)));
 }
 
 function renderSteps() {
+  if (!stepsGridEl) return;
   stepsGridEl.innerHTML = "";
+
   steps.forEach((step) => {
     const div = document.createElement("div");
-    div.className = "step-card reveal";
+    div.className = "step-card";
     div.innerHTML = `
       <div class="step-pill">Level ${step.number}</div>
       <h3>${step.title}</h3>
@@ -142,6 +149,7 @@ function renderSteps() {
 }
 
 function renderRolePicker() {
+  if (!roleGridEl) return;
   roleGridEl.innerHTML = "";
 
   roles.forEach((role) => {
@@ -168,6 +176,8 @@ function renderRolePicker() {
 }
 
 function updateRoleSelectionState() {
+  if (!selectedRoleTitle || !selectedRoleNote || !startSimulationBtn) return;
+
   selectedRoleTitle.textContent = selectedRole || "No role selected yet";
 
   if (selectedRole === "Project Manager") {
@@ -183,17 +193,17 @@ function updateRoleSelectionState() {
 }
 
 function openDisclaimer(roleName = null) {
-  if (roleName) {
-    selectedRole = roleName;
-  }
+  if (!disclaimerModal) return;
 
-  acknowledgeCheckbox.checked = false;
-  proceedDisclaimer.disabled = true;
+  if (roleName) selectedRole = roleName;
 
-  if (selectedRole) {
+  if (acknowledgeCheckbox) acknowledgeCheckbox.checked = false;
+  if (proceedDisclaimer) proceedDisclaimer.disabled = true;
+
+  if (selectedRole && selectedRoleChip) {
     selectedRoleChip.textContent = `Selected role: ${selectedRole}`;
     selectedRoleChip.classList.remove("hidden");
-  } else {
+  } else if (selectedRoleChip) {
     selectedRoleChip.classList.add("hidden");
   }
 
@@ -202,43 +212,43 @@ function openDisclaimer(roleName = null) {
 }
 
 function closeDisclaimer() {
-  disclaimerModal.classList.add("hidden");
+  if (disclaimerModal) disclaimerModal.classList.add("hidden");
   document.body.classList.remove("no-scroll");
 }
 
 function openRoleModal() {
-  disclaimerModal.classList.add("hidden");
+  if (!roleModal) return;
+  if (disclaimerModal) disclaimerModal.classList.add("hidden");
   roleModal.classList.remove("hidden");
   renderRolePicker();
   updateRoleSelectionState();
 }
 
 function closeRoleModal() {
-  roleModal.classList.add("hidden");
+  if (roleModal) roleModal.classList.add("hidden");
   document.body.classList.remove("no-scroll");
 }
 
 function openSimulation() {
-  if (selectedRole !== "Project Manager") return;
+  if (selectedRole !== "Project Manager" || !simulationModal) return;
 
   currentRoom = 1;
   selectedOption = null;
   totalImpactScore = 0;
 
-  roleModal.classList.add("hidden");
+  if (roleModal) roleModal.classList.add("hidden");
   simulationModal.classList.remove("hidden");
   document.body.classList.add("no-scroll");
-
   renderRoom();
 }
 
 function closeSimulation() {
-  simulationModal.classList.add("hidden");
+  if (simulationModal) simulationModal.classList.add("hidden");
   document.body.classList.remove("no-scroll");
 }
 
 function closeImpact() {
-  impactModal.classList.add("hidden");
+  if (impactModal) impactModal.classList.add("hidden");
   document.body.classList.remove("no-scroll");
 }
 
@@ -247,6 +257,7 @@ function getActiveRoom() {
 }
 
 function renderScenarioText(room) {
+  if (!scenarioText) return;
   scenarioText.innerHTML = `
     <p>${room.intro}</p>
     <p>${room.promptA}</p>
@@ -258,6 +269,7 @@ function renderScenarioText(room) {
 }
 
 function renderRoomOptions(room) {
+  if (!optionsList) return;
   optionsList.innerHTML = "";
 
   room.options.forEach((option) => {
@@ -292,6 +304,7 @@ function renderRoomOptions(room) {
 }
 
 function animateNumber(element, target) {
+  if (!element) return;
   let start = 0;
   const duration = 500;
   const increment = Math.max(1, Math.ceil(target / 25));
@@ -307,6 +320,8 @@ function animateNumber(element, target) {
 }
 
 function showResult(room, option) {
+  if (!resultPanel) return;
+
   resultPanel.classList.remove("hidden");
 
   resultTitle.textContent = `Result for ${option.title}`;
@@ -356,14 +371,12 @@ function showResult(room, option) {
     nextRoomBtn.classList.add("hidden");
     finishBtn.classList.remove("hidden");
   }
-
-  resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function renderRoom() {
   const room = getActiveRoom();
   selectedOption = null;
-  resultPanel.classList.add("hidden");
+  if (resultPanel) resultPanel.classList.add("hidden");
 
   roomHeading.textContent = `Room ${room.roomNumber} – ${room.title}`;
   missionTitle.textContent = room.mission;
@@ -382,7 +395,7 @@ function goToNextRoom() {
   if (currentRoom < rooms.length) {
     currentRoom += 1;
     renderRoom();
-    simulationModal.scrollTo({ top: 0, behavior: "smooth" });
+    if (simulationModal) simulationModal.scrollTo({ top: 0, behavior: "smooth" });
   }
 }
 
@@ -427,21 +440,20 @@ function getDynamicImpactResult(score, maxScore) {
     summary: "You are beginning to recognise how leadership decisions affect delivery, people, and trust.",
     workedWell:
       "You engaged with the project situations and began building awareness of how workplace decisions shape outcomes.",
-      canImprove:
-        "Many decisions responded to immediate pressure without fully addressing collaboration, communication, or future risk. Stronger leadership comes from slowing down, listening well, and making trade-offs explicit."
+    canImprove:
+      "Many decisions responded to immediate pressure without fully addressing collaboration, communication, or future risk. Stronger leadership comes from slowing down, listening well, and making trade-offs explicit."
     };
   }
 }
 
 function openImpactScreen() {
-  simulationModal.classList.add("hidden");
+  if (!impactModal) return;
+
+  if (simulationModal) simulationModal.classList.add("hidden");
   impactModal.classList.remove("hidden");
   document.body.classList.add("no-scroll");
 
-  const dynamicResult = getDynamicImpactResult(
-    totalImpactScore,
-    impactScreenData.maxScore
-  );
+  const dynamicResult = getDynamicImpactResult(totalImpactScore, impactScreenData.maxScore);
 
   impactTitle.textContent = impactScreenData.title;
   impactIntro.textContent = impactScreenData.intro;
@@ -465,21 +477,21 @@ function openImpactScreen() {
 }
 
 function retrySimulation() {
-  impactModal.classList.add("hidden");
+  if (impactModal) impactModal.classList.add("hidden");
   currentRoom = 1;
   selectedOption = null;
   totalImpactScore = 0;
-  simulationModal.classList.remove("hidden");
+  if (simulationModal) simulationModal.classList.remove("hidden");
   renderRoom();
 }
 
 function chooseAnotherRole() {
-  impactModal.classList.add("hidden");
+  if (impactModal) impactModal.classList.add("hidden");
   currentRoom = 1;
   selectedOption = null;
   totalImpactScore = 0;
-  simulationModal.classList.add("hidden");
-  roleModal.classList.remove("hidden");
+  if (simulationModal) simulationModal.classList.add("hidden");
+  if (roleModal) roleModal.classList.remove("hidden");
   document.body.classList.add("no-scroll");
   renderRolePicker();
   updateRoleSelectionState();
@@ -490,32 +502,32 @@ function finishSimulation() {
 }
 
 function setupButtons() {
-  document.getElementById("openSimulationTop").addEventListener("click", () => openDisclaimer());
-  document.getElementById("openSimulationHero").addEventListener("click", () => openDisclaimer());
-  document.getElementById("openSimulationBottom").addEventListener("click", () => openDisclaimer());
+  document.getElementById("openSimulationTop")?.addEventListener("click", () => openDisclaimer());
+  document.getElementById("openSimulationHero")?.addEventListener("click", () => openDisclaimer());
+  document.getElementById("openSimulationBottom")?.addEventListener("click", () => openDisclaimer());
 
-  document.getElementById("closeDisclaimer").addEventListener("click", closeDisclaimer);
-  document.getElementById("cancelDisclaimer").addEventListener("click", closeDisclaimer);
+  document.getElementById("closeDisclaimer")?.addEventListener("click", closeDisclaimer);
+  document.getElementById("cancelDisclaimer")?.addEventListener("click", closeDisclaimer);
 
-  acknowledgeCheckbox.addEventListener("change", () => {
+  acknowledgeCheckbox?.addEventListener("change", () => {
     proceedDisclaimer.disabled = !acknowledgeCheckbox.checked;
   });
 
-  proceedDisclaimer.addEventListener("click", () => {
+  proceedDisclaimer?.addEventListener("click", () => {
     document.body.classList.add("no-scroll");
     openRoleModal();
   });
 
-  document.getElementById("closeRoleModal").addEventListener("click", closeRoleModal);
-  startSimulationBtn.addEventListener("click", openSimulation);
+  document.getElementById("closeRoleModal")?.addEventListener("click", closeRoleModal);
+  startSimulationBtn?.addEventListener("click", openSimulation);
 
-  document.getElementById("closeSimulation").addEventListener("click", closeSimulation);
-  nextRoomBtn.addEventListener("click", goToNextRoom);
-  finishBtn.addEventListener("click", finishSimulation);
+  document.getElementById("closeSimulation")?.addEventListener("click", closeSimulation);
+  nextRoomBtn?.addEventListener("click", goToNextRoom);
+  finishBtn?.addEventListener("click", finishSimulation);
 
-  closeImpactModal.addEventListener("click", closeImpact);
-  retrySimulationBtn.addEventListener("click", retrySimulation);
-  chooseAnotherRoleBtn.addEventListener("click", chooseAnotherRole);
+  closeImpactModal?.addEventListener("click", closeImpact);
+  retrySimulationBtn?.addEventListener("click", retrySimulation);
+  chooseAnotherRoleBtn?.addEventListener("click", chooseAnotherRole);
 }
 
 function setupSmoothScroll() {
@@ -524,48 +536,18 @@ function setupSmoothScroll() {
       const targetId = this.getAttribute("href");
       const target = document.querySelector(targetId);
 
-      if (target) {
-        e.preventDefault();
+      if (!target) return;
 
-        const headerOffset = window.innerWidth <= 820 ? 90 : 110;
-        const targetPosition =
-          target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      e.preventDefault();
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-}
+      const headerOffset = window.innerWidth <= 820 ? 90 : 110;
+      const targetPosition =
+        target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-function setupRevealAnimation() {
-  const revealElements = document.querySelectorAll(".reveal");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
       });
-    },
-    { threshold: 0.12 }
-  );
-
-  revealElements.forEach((el) => observer.observe(el));
-}
-
-function setupPointerGlow() {
-  document.querySelectorAll(".info-card, .step-card, .role-card, .hero-role-item, .option-card").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      card.style.setProperty("--mx", `${x}px`);
-      card.style.setProperty("--my", `${y}px`);
     });
   });
 }
@@ -578,8 +560,6 @@ function init() {
   renderRolesGrid();
   setupButtons();
   setupSmoothScroll();
-  setupRevealAnimation();
-  setupPointerGlow();
 }
 
 init();
