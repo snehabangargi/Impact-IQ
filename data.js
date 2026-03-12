@@ -90,6 +90,40 @@ const learningCards = [
   }
 ];
 
+const impactScreenData = {
+  title: "Simulation Debrief",
+  intro:
+    "Your decisions influenced Team Collaboration, Stakeholder Impact, and Leadership Confidence.",
+  subIntro:
+    "Project leadership is about balancing people, expectations, and decisions under pressure.",
+  workedWell:
+    "You recognised how decisions affect both the team and project outcomes, helping maintain collaboration in several situations.",
+  canImprove:
+    "Some choices reacted quickly to pressure. Stronger results come from pausing, gathering team input, and communicating trade-offs clearly.",
+  maxScore: 80,
+  badge: "Emerging Project Leader 🏅",
+  summary: "Your decisions show developing leadership awareness.",
+  resources: [
+    {
+      title: "Scrum: The Art of Doing Twice the Work in Half the Time – Jeff Sutherland",
+      link: "https://www.scruminc.com/new-scrum-the-book/"
+    },
+    {
+      title: "The Phoenix Project – Gene Kim, Kevin Behr, George Spafford",
+      link: "https://itrevolution.com/product/the-phoenix-project/"
+    },
+    {
+      title: "Leaders Eat Last – Simon Sinek",
+      link: "https://simonsinek.com/books/leaders-eat-last/"
+    },
+    {
+      title: "The Scrum Guide",
+      link: "https://scrumguides.org/scrum-guide.html"
+    }
+  ],
+  disclaimer: "Disclaimer: Resources shared for educational support only."
+};
+
 const rooms = [
   {
     roomNumber: 1,
@@ -244,6 +278,57 @@ const rooms = [
         resultType: "average",
         reason:
           "The team attempts to resolve the issue quickly to maintain the release schedule. While this may work in the short term, the rushed fix may introduce extra pressure and fresh defects."
+      }
+    ]
+  },
+  {
+    roomNumber: 4,
+    title: "Team Disagreement",
+    mission: "Balancing Speed and Technical Stability",
+    intro: "During sprint planning, two developers disagree about how a feature should be implemented.",
+    promptA: "One developer believes the feature should be built quickly to meet the deadline.",
+    quoteA: "Another developer argues that the current approach may create technical issues later.",
+    promptB: "The discussion starts slowing down the meeting, and the rest of the team is waiting for a decision.",
+    quoteB: "What will you do?",
+    closing: "You need to decide how to move the team forward.",
+    bestExplanation:
+      "The strongest approach is Option B because it encourages healthy discussion, respects technical concerns, and guides the team toward a balanced solution. It supports both delivery discipline and long-term product stability.",
+    options: [
+      {
+        key: "A",
+        title: "Option A",
+        decision: "Choose the faster approach",
+        action:
+          "You decide to go with the quicker solution so the team can stay on schedule.",
+        impact: { team: 45, stakeholder: 75, leadership: 50 },
+        score: 5,
+        resultType: "needs-improvement",
+        reason:
+          "The meeting moves forward quickly, but ignoring the technical concern may cause frustration in the team and reduce collaboration."
+      },
+      {
+        key: "B",
+        title: "Option B",
+        decision: "Encourage discussion and find a balanced solution",
+        action:
+          "You allow both developers to explain their perspectives and guide the team toward a solution that balances speed and long-term stability.",
+        impact: { team: 85, stakeholder: 80, leadership: 90 },
+        score: 20,
+        resultType: "excellent",
+        reason:
+          "Encouraging open discussion helps the team make informed decisions and strengthens collaboration."
+      },
+      {
+        key: "C",
+        title: "Option C",
+        decision: "Delay the decision for later",
+        action:
+          "You postpone the discussion and move to the next agenda item to keep the meeting moving.",
+        impact: { team: 50, stakeholder: 50, leadership: 70 },
+        score: 10,
+        resultType: "average",
+        reason:
+          "The meeting continues smoothly, but delaying the discussion may leave the issue unresolved and affect future progress."
       }
     ]
   }
