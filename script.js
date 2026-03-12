@@ -15,71 +15,81 @@ const resultBadgeMap = {
   "needs-improvement": "Could Be Better"
 };
 
-const heroRoleList = document.getElementById("heroRoleList");
-const aboutCardsEl = document.getElementById("aboutCards");
-const stepsGridEl = document.getElementById("stepsGrid");
-const learningCardsEl = document.getElementById("learningCards");
-const rolesGridEl = document.getElementById("rolesGrid");
-const roleGridEl = document.getElementById("roleGrid");
+const el = (id) => document.getElementById(id);
 
-const disclaimerModal = document.getElementById("disclaimerModal");
-const roleModal = document.getElementById("roleModal");
-const simulationModal = document.getElementById("simulationModal");
-const impactModal = document.getElementById("impactModal");
+const heroRoleList = el("heroRoleList");
+const aboutCardsEl = el("aboutCards");
+const stepsGridEl = el("stepsGrid");
+const learningCardsEl = el("learningCards");
+const rolesGridEl = el("rolesGrid");
+const roleGridEl = el("roleGrid");
 
-const selectedRoleChip = document.getElementById("selectedRoleChip");
-const acknowledgeCheckbox = document.getElementById("acknowledgeCheckbox");
-const proceedDisclaimer = document.getElementById("proceedDisclaimer");
+const disclaimerModal = el("disclaimerModal");
+const roleModal = el("roleModal");
+const simulationModal = el("simulationModal");
+const impactModal = el("impactModal");
 
-const selectedRoleTitle = document.getElementById("selectedRoleTitle");
-const selectedRoleNote = document.getElementById("selectedRoleNote");
-const startSimulationBtn = document.getElementById("startSimulationBtn");
+const selectedRoleChip = el("selectedRoleChip");
+const acknowledgeCheckbox = el("acknowledgeCheckbox");
+const proceedDisclaimer = el("proceedDisclaimer");
 
-const roomHeading = document.getElementById("roomHeading");
-const progressText = document.getElementById("progressText");
-const progressPercent = document.getElementById("progressPercent");
-const roomProgressFill = document.getElementById("roomProgressFill");
-const missionTitle = document.getElementById("missionTitle");
-const roomChip = document.getElementById("roomChip");
-const scenarioText = document.getElementById("scenarioText");
-const optionsList = document.getElementById("optionsList");
+const selectedRoleTitle = el("selectedRoleTitle");
+const selectedRoleNote = el("selectedRoleNote");
+const startSimulationBtn = el("startSimulationBtn");
 
-const resultPanel = document.getElementById("resultPanel");
-const resultTitle = document.getElementById("resultTitle");
-const resultBadge = document.getElementById("resultBadge");
-const teamValue = document.getElementById("teamValue");
-const stakeholderValue = document.getElementById("stakeholderValue");
-const leadershipValue = document.getElementById("leadershipValue");
-const resultReason = document.getElementById("resultReason");
-const bestExplanation = document.getElementById("bestExplanation");
+const roomHeading = el("roomHeading");
+const progressText = el("progressText");
+const progressPercent = el("progressPercent");
+const roomProgressFill = el("roomProgressFill");
+const missionTitle = el("missionTitle");
+const roomChip = el("roomChip");
+const scenarioText = el("scenarioText");
+const optionsList = el("optionsList");
 
-const scorePill = document.getElementById("scorePill");
-const scoreNumber = document.getElementById("scoreNumber");
+const resultPanel = el("resultPanel");
+const resultTitle = el("resultTitle");
+const resultBadge = el("resultBadge");
+const teamValue = el("teamValue");
+const stakeholderValue = el("stakeholderValue");
+const leadershipValue = el("leadershipValue");
+const resultReason = el("resultReason");
+const bestExplanation = el("bestExplanation");
 
-const teamBar = document.getElementById("teamBar");
-const stakeholderBar = document.getElementById("stakeholderBar");
-const leadershipBar = document.getElementById("leadershipBar");
+const scorePill = el("scorePill");
+const scoreNumber = el("scoreNumber");
 
-const teamBarText = document.getElementById("teamBarText");
-const stakeholderBarText = document.getElementById("stakeholderBarText");
-const leadershipBarText = document.getElementById("leadershipBarText");
+const teamBar = el("teamBar");
+const stakeholderBar = el("stakeholderBar");
+const leadershipBar = el("leadershipBar");
 
-const nextRoomBtn = document.getElementById("nextRoomBtn");
-const finishBtn = document.getElementById("finishBtn");
+const teamBarText = el("teamBarText");
+const stakeholderBarText = el("stakeholderBarText");
+const leadershipBarText = el("leadershipBarText");
 
-const impactTitle = document.getElementById("impactTitle");
-const impactIntro = document.getElementById("impactIntro");
-const impactSubIntro = document.getElementById("impactSubIntro");
-const workedWellText = document.getElementById("workedWellText");
-const canImproveText = document.getElementById("canImproveText");
-const finalScoreNumber = document.getElementById("finalScoreNumber");
-const impactSummaryText = document.getElementById("impactSummaryText");
-const badgeText = document.getElementById("badgeText");
-const resourceList = document.getElementById("resourceList");
-const resourceDisclaimer = document.getElementById("resourceDisclaimer");
-const retrySimulationBtn = document.getElementById("retrySimulationBtn");
-const chooseAnotherRoleBtn = document.getElementById("chooseAnotherRoleBtn");
-const closeImpactModal = document.getElementById("closeImpactModal");
+const nextRoomBtn = el("nextRoomBtn");
+const finishBtn = el("finishBtn");
+
+const impactTitle = el("impactTitle");
+const impactIntro = el("impactIntro");
+const impactSubIntro = el("impactSubIntro");
+const workedWellText = el("workedWellText");
+const canImproveText = el("canImproveText");
+const finalScoreNumber = el("finalScoreNumber");
+const impactSummaryText = el("impactSummaryText");
+const badgeText = el("badgeText");
+const resourceList = el("resourceList");
+const resourceDisclaimer = el("resourceDisclaimer");
+const retrySimulationBtn = el("retrySimulationBtn");
+const chooseAnotherRoleBtn = el("chooseAnotherRoleBtn");
+const closeImpactModal = el("closeImpactModal");
+
+function show(node) {
+  if (node) node.classList.remove("hidden");
+}
+
+function hide(node) {
+  if (node) node.classList.add("hidden");
+}
 
 function renderHeroRoles() {
   if (!heroRoleList) return;
@@ -194,61 +204,60 @@ function updateRoleSelectionState() {
 
 function openDisclaimer(roleName = null) {
   if (!disclaimerModal) return;
-
   if (roleName) selectedRole = roleName;
 
   if (acknowledgeCheckbox) acknowledgeCheckbox.checked = false;
   if (proceedDisclaimer) proceedDisclaimer.disabled = true;
 
-  if (selectedRole && selectedRoleChip) {
-    selectedRoleChip.textContent = `Selected role: ${selectedRole}`;
-    selectedRoleChip.classList.remove("hidden");
-  } else if (selectedRoleChip) {
-    selectedRoleChip.classList.add("hidden");
+  if (selectedRoleChip) {
+    if (selectedRole) {
+      selectedRoleChip.textContent = `Selected role: ${selectedRole}`;
+      selectedRoleChip.classList.remove("hidden");
+    } else {
+      selectedRoleChip.classList.add("hidden");
+    }
   }
 
-  disclaimerModal.classList.remove("hidden");
+  show(disclaimerModal);
   document.body.classList.add("no-scroll");
 }
 
 function closeDisclaimer() {
-  if (disclaimerModal) disclaimerModal.classList.add("hidden");
+  hide(disclaimerModal);
   document.body.classList.remove("no-scroll");
 }
 
 function openRoleModal() {
-  if (!roleModal) return;
-  if (disclaimerModal) disclaimerModal.classList.add("hidden");
-  roleModal.classList.remove("hidden");
+  hide(disclaimerModal);
+  show(roleModal);
   renderRolePicker();
   updateRoleSelectionState();
 }
 
 function closeRoleModal() {
-  if (roleModal) roleModal.classList.add("hidden");
+  hide(roleModal);
   document.body.classList.remove("no-scroll");
 }
 
 function openSimulation() {
-  if (selectedRole !== "Project Manager" || !simulationModal) return;
-
+  if (selectedRole !== "Project Manager") return;
   currentRoom = 1;
   selectedOption = null;
   totalImpactScore = 0;
 
-  if (roleModal) roleModal.classList.add("hidden");
-  simulationModal.classList.remove("hidden");
+  hide(roleModal);
+  show(simulationModal);
   document.body.classList.add("no-scroll");
   renderRoom();
 }
 
 function closeSimulation() {
-  if (simulationModal) simulationModal.classList.add("hidden");
+  hide(simulationModal);
   document.body.classList.remove("no-scroll");
 }
 
 function closeImpact() {
-  if (impactModal) impactModal.classList.add("hidden");
+  hide(impactModal);
   document.body.classList.remove("no-scroll");
 }
 
@@ -322,7 +331,7 @@ function animateNumber(element, target) {
 function showResult(room, option) {
   if (!resultPanel) return;
 
-  resultPanel.classList.remove("hidden");
+  show(resultPanel);
 
   resultTitle.textContent = `Result for ${option.title}`;
   resultBadge.textContent = resultBadgeMap[option.resultType];
@@ -365,25 +374,25 @@ function showResult(room, option) {
   }, 400);
 
   if (currentRoom < rooms.length) {
-    nextRoomBtn.classList.remove("hidden");
-    finishBtn.classList.add("hidden");
+    show(nextRoomBtn);
+    hide(finishBtn);
   } else {
-    nextRoomBtn.classList.add("hidden");
-    finishBtn.classList.remove("hidden");
+    hide(nextRoomBtn);
+    show(finishBtn);
   }
 }
 
 function renderRoom() {
   const room = getActiveRoom();
   selectedOption = null;
-  if (resultPanel) resultPanel.classList.add("hidden");
+  hide(resultPanel);
 
   roomHeading.textContent = `Room ${room.roomNumber} – ${room.title}`;
   missionTitle.textContent = room.mission;
   roomChip.textContent = `Room ${room.roomNumber}`;
 
-  progressText.textContent = `Room ${currentRoom} of ${rooms.length}`;
   const percent = Math.round((currentRoom / rooms.length) * 100);
+  progressText.textContent = `Room ${currentRoom} of ${rooms.length}`;
   progressPercent.textContent = `${percent}%`;
   roomProgressFill.style.width = `${percent}%`;
 
@@ -449,8 +458,8 @@ function getDynamicImpactResult(score, maxScore) {
 function openImpactScreen() {
   if (!impactModal) return;
 
-  if (simulationModal) simulationModal.classList.add("hidden");
-  impactModal.classList.remove("hidden");
+  hide(simulationModal);
+  show(impactModal);
   document.body.classList.add("no-scroll");
 
   const dynamicResult = getDynamicImpactResult(totalImpactScore, impactScreenData.maxScore);
@@ -458,10 +467,8 @@ function openImpactScreen() {
   impactTitle.textContent = impactScreenData.title;
   impactIntro.textContent = impactScreenData.intro;
   impactSubIntro.textContent = impactScreenData.subIntro;
-
   workedWellText.textContent = dynamicResult.workedWell;
   canImproveText.textContent = dynamicResult.canImprove;
-
   finalScoreNumber.textContent = `${totalImpactScore} / ${impactScreenData.maxScore}`;
   impactSummaryText.textContent = dynamicResult.summary;
   badgeText.textContent = dynamicResult.badge;
@@ -477,21 +484,21 @@ function openImpactScreen() {
 }
 
 function retrySimulation() {
-  if (impactModal) impactModal.classList.add("hidden");
+  hide(impactModal);
   currentRoom = 1;
   selectedOption = null;
   totalImpactScore = 0;
-  if (simulationModal) simulationModal.classList.remove("hidden");
+  show(simulationModal);
   renderRoom();
 }
 
 function chooseAnotherRole() {
-  if (impactModal) impactModal.classList.add("hidden");
+  hide(impactModal);
   currentRoom = 1;
   selectedOption = null;
   totalImpactScore = 0;
-  if (simulationModal) simulationModal.classList.add("hidden");
-  if (roleModal) roleModal.classList.remove("hidden");
+  hide(simulationModal);
+  show(roleModal);
   document.body.classList.add("no-scroll");
   renderRolePicker();
   updateRoleSelectionState();
@@ -502,26 +509,22 @@ function finishSimulation() {
 }
 
 function setupButtons() {
-  document.getElementById("openSimulationTop")?.addEventListener("click", () => openDisclaimer());
-  document.getElementById("openSimulationHero")?.addEventListener("click", () => openDisclaimer());
-  document.getElementById("openSimulationBottom")?.addEventListener("click", () => openDisclaimer());
+  el("openSimulationTop")?.addEventListener("click", () => openDisclaimer());
+  el("openSimulationHero")?.addEventListener("click", () => openDisclaimer());
+  el("openSimulationBottom")?.addEventListener("click", () => openDisclaimer());
 
-  document.getElementById("closeDisclaimer")?.addEventListener("click", closeDisclaimer);
-  document.getElementById("cancelDisclaimer")?.addEventListener("click", closeDisclaimer);
+  el("closeDisclaimer")?.addEventListener("click", closeDisclaimer);
+  el("cancelDisclaimer")?.addEventListener("click", closeDisclaimer);
 
   acknowledgeCheckbox?.addEventListener("change", () => {
     proceedDisclaimer.disabled = !acknowledgeCheckbox.checked;
   });
 
-  proceedDisclaimer?.addEventListener("click", () => {
-    document.body.classList.add("no-scroll");
-    openRoleModal();
-  });
-
-  document.getElementById("closeRoleModal")?.addEventListener("click", closeRoleModal);
+  proceedDisclaimer?.addEventListener("click", openRoleModal);
+  el("closeRoleModal")?.addEventListener("click", closeRoleModal);
   startSimulationBtn?.addEventListener("click", openSimulation);
 
-  document.getElementById("closeSimulation")?.addEventListener("click", closeSimulation);
+  el("closeSimulation")?.addEventListener("click", closeSimulation);
   nextRoomBtn?.addEventListener("click", goToNextRoom);
   finishBtn?.addEventListener("click", finishSimulation);
 
@@ -535,7 +538,6 @@ function setupSmoothScroll() {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
       const target = document.querySelector(targetId);
-
       if (!target) return;
 
       e.preventDefault();
@@ -560,6 +562,7 @@ function init() {
   renderRolesGrid();
   setupButtons();
   setupSmoothScroll();
+  updateRoleSelectionState();
 }
 
-init();
+document.addEventListener("DOMContentLoaded", init);
