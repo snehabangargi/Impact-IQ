@@ -92,10 +92,8 @@ const learningCards = [
 
 const impactScreenData = {
   title: "Simulation Debrief",
-  intro:
-    "Your decisions influenced Team Collaboration, Stakeholder Impact, and Leadership Confidence.",
-  subIntro:
-    "Project leadership is about balancing people, expectations, and decisions under pressure.",
+  intro: "Your decisions influenced Team Collaboration, Stakeholder Impact, and Leadership Confidence.",
+  subIntro: "Project leadership is about balancing people, expectations, and decisions under pressure.",
   maxScore: 80,
   resources: [
     {
@@ -136,37 +134,31 @@ const rooms = [
         key: "A",
         title: "Option A",
         decision: "Discuss the request briefly with the team",
-        action:
-          "You acknowledge the stakeholder message and quickly check with the team to see if a small adjustment can be made without disrupting the sprint goals.",
+        action: "You acknowledge the stakeholder message and quickly check with the team to see if a small adjustment can be made without disrupting the sprint goals.",
         impact: { team: 65, stakeholder: 60, leadership: 60 },
         score: 10,
         resultType: "average",
-        reason:
-          "This approach involves the team before making a decision, which supports collaboration and transparency. However, it still risks opening the sprint scope and may create uncertainty if similar requests appear again."
+        reason: "This approach involves the team before making a decision, which supports collaboration and transparency. However, it still risks opening the sprint scope and may create uncertainty if similar requests appear again."
       },
       {
         key: "B",
         title: "Option B",
         decision: "Move the request to the next sprint",
-        action:
-          "You explain that the sprint backlog is already committed and suggest discussing the feature during the next sprint planning.",
+        action: "You explain that the sprint backlog is already committed and suggest discussing the feature during the next sprint planning.",
         impact: { team: 80, stakeholder: 40, leadership: 85 },
         score: 20,
         resultType: "excellent",
-        reason:
-          "This protects the sprint commitment and keeps the team focused. It demonstrates structured leadership and disciplined planning."
+        reason: "This protects the sprint commitment and keeps the team focused. It demonstrates structured leadership and disciplined planning."
       },
       {
         key: "C",
         title: "Option C",
         decision: "Ask the team to stretch capacity",
-        action:
-          "You ask the team to push their workload to try delivering both the current sprint tasks and the new feature.",
+        action: "You ask the team to push their workload to try delivering both the current sprint tasks and the new feature.",
         impact: { team: 45, stakeholder: 70, leadership: 55 },
         score: 5,
         resultType: "needs-improvement",
-        reason:
-          "This may satisfy the stakeholder temporarily but creates pressure on the team and increases the risk of burnout, missed quality checks, and unstable delivery."
+        reason: "This may satisfy the stakeholder temporarily but creates pressure on the team and increases the risk of burnout, missed quality checks, and unstable delivery."
       }
     ]
   },
@@ -175,10 +167,8 @@ const rooms = [
     title: "Communication Misunderstanding",
     mission: "Team Communication Breakdown",
     intro: "Your development team is distributed across different countries.",
-    promptA:
-      "During a sprint discussion, a developer from another location stays quiet while others agree on the task timeline.",
-    quoteA:
-      "Later that day, the developer sends a message saying the task may take longer than expected because some requirements were unclear.",
+    promptA: "During a sprint discussion, a developer from another location stays quiet while others agree on the task timeline.",
+    quoteA: "Later that day, the developer sends a message saying the task may take longer than expected because some requirements were unclear.",
     promptB: "The team now has a communication gap.",
     quoteB: "This creates confusion in the team.",
     closing: "What will you do?",
@@ -189,37 +179,31 @@ const rooms = [
         key: "A",
         title: "Option A",
         decision: "Ask why the concern was not raised earlier",
-        action:
-          "You question the developer during the team meeting about why the concern was not mentioned earlier.",
+        action: "You question the developer during the team meeting about why the concern was not mentioned earlier.",
         impact: { team: 40, stakeholder: 40, leadership: 40 },
         score: 5,
         resultType: "needs-improvement",
-        reason:
-          "Publicly questioning a team member may create discomfort and reduce open communication, especially in culturally diverse teams."
+        reason: "Publicly questioning a team member may create discomfort and reduce open communication, especially in culturally diverse teams."
       },
       {
         key: "B",
         title: "Option B",
         decision: "Arrange a quick clarification discussion",
-        action:
-          "You organise a short call with the developer and the Business Analyst to clarify the requirements and update the team.",
+        action: "You organise a short call with the developer and the Business Analyst to clarify the requirements and update the team.",
         impact: { team: 85, stakeholder: 80, leadership: 85 },
         score: 20,
         resultType: "excellent",
-        reason:
-          "Encouraging clarification and open discussion helps prevent misunderstandings and strengthens collaboration in distributed teams."
+        reason: "Encouraging clarification and open discussion helps prevent misunderstandings and strengthens collaboration in distributed teams."
       },
       {
         key: "C",
         title: "Option C",
         decision: "Adjust the timeline quietly",
-        action:
-          "You update the timeline internally without discussing the issue with the team.",
+        action: "You update the timeline internally without discussing the issue with the team.",
         impact: { team: 55, stakeholder: 70, leadership: 65 },
         score: 10,
         resultType: "average",
-        reason:
-          "The pressure on the team reduces, but the root communication issue remains unresolved and could appear again later."
+        reason: "The pressure on the team reduces, but the root communication issue remains unresolved and could appear again later."
       }
     ]
   },
@@ -228,8 +212,7 @@ const rooms = [
     title: "Critical Bug Before Release",
     mission: "Release Quality Under Pressure",
     intro: "Your team is preparing for an important product release at the end of the sprint.",
-    promptA:
-      "During final testing, the Quality Analyst reports a critical bug that affects a key feature. Fixing the issue may delay the release by a few days.",
+    promptA: "During final testing, the Quality Analyst reports a critical bug that affects a key feature. Fixing the issue may delay the release by a few days.",
     quoteA: "The stakeholder is expecting the product to be delivered on time.",
     promptB: "Quality and schedule are now in conflict.",
     quoteB: "You must decide how to proceed.",
@@ -241,37 +224,31 @@ const rooms = [
         key: "A",
         title: "Option A",
         decision: "Release the product and fix the bug later",
-        action:
-          "You decide to release the product as planned and schedule the bug fix in the next update.",
+        action: "You decide to release the product as planned and schedule the bug fix in the next update.",
         impact: { team: 45, stakeholder: 75, leadership: 45 },
         score: 5,
         resultType: "needs-improvement",
-        reason:
-          "The deadline is met, which satisfies the stakeholder temporarily. However, releasing a product with known issues can reduce trust in the team and create additional problems later."
+        reason: "The deadline is met, which satisfies the stakeholder temporarily. However, releasing a product with known issues can reduce trust in the team and create additional problems later."
       },
       {
         key: "B",
         title: "Option B",
         decision: "Delay the release to fix the bug",
-        action:
-          "You inform the stakeholder about the issue and allow the team time to fix the bug before releasing the product.",
+        action: "You inform the stakeholder about the issue and allow the team time to fix the bug before releasing the product.",
         impact: { team: 85, stakeholder: 45, leadership: 85 },
         score: 20,
         resultType: "excellent",
-        reason:
-          "Prioritising product quality strengthens team trust and long-term project credibility, even though the release is slightly delayed."
+        reason: "Prioritising product quality strengthens team trust and long-term project credibility, even though the release is slightly delayed."
       },
       {
         key: "C",
         title: "Option C",
         decision: "Ask the team to fix the bug immediately",
-        action:
-          "You ask the development and QA teams to quickly fix the bug while trying to keep the original release deadline.",
+        action: "You ask the development and QA teams to quickly fix the bug while trying to keep the original release deadline.",
         impact: { team: 70, stakeholder: 75, leadership: 70 },
         score: 10,
         resultType: "average",
-        reason:
-          "The team attempts to resolve the issue quickly to maintain the release schedule. While this may work in the short term, the rushed fix may introduce extra pressure and fresh defects."
+        reason: "The team attempts to resolve the issue quickly to maintain the release schedule. While this may work in the short term, the rushed fix may introduce extra pressure and fresh defects."
       }
     ]
   },
@@ -292,37 +269,31 @@ const rooms = [
         key: "A",
         title: "Option A",
         decision: "Choose the faster approach",
-        action:
-          "You decide to go with the quicker solution so the team can stay on schedule.",
+        action: "You decide to go with the quicker solution so the team can stay on schedule.",
         impact: { team: 45, stakeholder: 75, leadership: 50 },
         score: 5,
         resultType: "needs-improvement",
-        reason:
-          "The meeting moves forward quickly, but ignoring the technical concern may cause frustration in the team and reduce collaboration."
+        reason: "The meeting moves forward quickly, but ignoring the technical concern may cause frustration in the team and reduce collaboration."
       },
       {
         key: "B",
         title: "Option B",
         decision: "Encourage discussion and find a balanced solution",
-        action:
-          "You allow both developers to explain their perspectives and guide the team toward a solution that balances speed and long-term stability.",
+        action: "You allow both developers to explain their perspectives and guide the team toward a solution that balances speed and long-term stability.",
         impact: { team: 85, stakeholder: 80, leadership: 90 },
         score: 20,
         resultType: "excellent",
-        reason:
-          "Encouraging open discussion helps the team make informed decisions and strengthens collaboration."
+        reason: "Encouraging open discussion helps the team make informed decisions and strengthens collaboration."
       },
       {
         key: "C",
         title: "Option C",
         decision: "Delay the decision for later",
-        action:
-          "You postpone the discussion and move to the next agenda item to keep the meeting moving.",
+        action: "You postpone the discussion and move to the next agenda item to keep the meeting moving.",
         impact: { team: 50, stakeholder: 50, leadership: 70 },
         score: 10,
         resultType: "average",
-        reason:
-          "The meeting continues smoothly, but delaying the discussion may leave the issue unresolved and affect future progress."
+        reason: "The meeting continues smoothly, but delaying the discussion may leave the issue unresolved and affect future progress."
       }
     ]
   }
