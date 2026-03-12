@@ -434,7 +434,83 @@
       </div><!-- /.simulation-stack -->
     </div><!-- /.simulation-shell -->
   </div><!-- /.simulationModal -->
+  <!-- Impact Screen Modal -->
+  <div class="modal-overlay hidden" id="impactModal">
+    <div class="simulation-shell scale-in">
+      <div class="simulation-top">
+        <div>
+          <p class="section-eyebrow left">Final Reflection</p>
+          <h2>Simulation Debrief</h2>
+        </div>
 
+        <button class="modal-close sim-close" id="closeImpactModal">×</button>
+      </div>
+
+      <div class="simulation-stack">
+        <div class="sim-card glass">
+          <div class="section-title">
+            <p class="section-eyebrow left">Simulation Debrief</p>
+            <h2 id="impactTitle">Simulation Debrief</h2>
+          </div>
+
+          <p class="hero-text" id="impactIntro"></p>
+          <p class="hero-text" id="impactSubIntro"></p>
+        </div>
+
+        <div class="sim-card glass">
+          <div class="result-grid">
+            <div class="result-left">
+              <div class="explain-box">
+                <p class="mini-label">What Worked Well</p>
+                <p id="workedWellText"></p>
+              </div>
+
+              <div class="best-box">
+                <p class="mini-label">What Can Improve</p>
+                <p id="canImproveText"></p>
+              </div>
+
+              <div class="explain-box impact-resource-box">
+                <p class="mini-label">Learn More</p>
+                <div id="resourceList" class="resource-list"></div>
+                <p class="resource-disclaimer" id="resourceDisclaimer"></p>
+              </div>
+            </div>
+
+            <div class="result-right">
+              <div class="impact-panel">
+                <div class="impact-head">
+                  <div>
+                    <p class="mini-label">Impact IQ Score</p>
+                    <h3>Your Final Score</h3>
+                  </div>
+                </div>
+
+                <div class="score-box impact-final-score-box">
+                  <p>Impact IQ Score</p>
+                  <div class="score-number" id="finalScoreNumber">0 / 80</div>
+                  <small id="impactSummaryText"></small>
+                </div>
+              </div>
+
+              <div class="score-summary">
+                <p class="mini-label">Badge Earned</p>
+                <h3 id="badgeText">Emerging Project Leader 🏅</h3>
+
+                <div class="score-box">
+                  <p>Next Step</p>
+                  <div class="impact-actions">
+                    <button class="btn btn-primary" id="retrySimulationBtn">Try Simulation Again</button>
+                    <button class="btn btn-secondary" id="chooseAnotherRoleBtn">Choose Another Role</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.simulation-stack -->
+    </div><!-- /.simulation-shell -->
+  </div><!-- /.impactModal -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
