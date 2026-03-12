@@ -187,17 +187,27 @@ button {
   min-width: 0;
 }
 
-.brand-mark {
-  width: 44px;
-  height: 44px;
+.brand-logo-wrap {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-2));
-  color: #fff;
-  font-weight: 800;
-  box-shadow: 0 10px 26px rgba(139, 92, 246, 0.34);
-  flex-shrink: 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text {
+  min-width: 0;
 }
 
 .brand-title {
@@ -227,6 +237,10 @@ button {
 
 .nav-links a:hover {
   color: var(--text);
+}
+
+.nav-cta {
+  flex-shrink: 0;
 }
 
 .hero {
@@ -1224,7 +1238,6 @@ button {
     display: none;
   }
 
-  .hero,
   .info-grid,
   .steps-grid,
   .role-grid,
@@ -1263,5 +1276,10 @@ button {
   .mission-badge {
     position: static;
     margin-bottom: 14px;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
   }
 }
