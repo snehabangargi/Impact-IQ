@@ -2,27 +2,27 @@ const roles = [
   {
     title: "Project Manager",
     text: "Responsible for planning, coordinating the team, and ensuring the project is delivered successfully.",
-    icon: "💼"
+    icon: "📁"
   },
   {
     title: "Scrum Master",
     text: "Supports the Agile team, removes obstacles, and helps maintain effective collaboration during sprints.",
-    icon: "👥"
+    icon: "🧩"
   },
   {
     title: "Business Analyst",
     text: "Bridges communication between stakeholders and the development team while clarifying project requirements.",
-    icon: "📋"
+    icon: "📊"
   },
   {
     title: "HR Executive",
     text: "Supports team wellbeing, manages workplace conflicts, and promotes effective communication across diverse teams.",
-    icon: "🧭"
+    icon: "👥"
   },
   {
     title: "Quality Analyst",
     text: "Ensures product quality by identifying defects, testing features, and reporting potential risks.",
-    icon: "🛡"
+    icon: "🛡️"
   },
   {
     title: "Developer",
@@ -57,35 +57,35 @@ const steps = [
 const aboutCards = [
   {
     title: "Real Scenarios",
-    text: "Experience real project meetings, team communication issues, and stakeholder discussions.",
-    icon: "📋"
+    text: "Experience project meetings, team communication issues, stakeholder pressure, and delivery trade-offs that feel close to real workplace situations.",
+    icon: "🎯"
   },
   {
     title: "Decision Impact",
-    text: "See how your choices influence project progress, trust, and project outcomes.",
+    text: "See how one decision can affect team collaboration, stakeholder confidence, and leadership effectiveness.",
     icon: "📈"
   },
   {
-    title: "Iterative Learning",
-    text: "Improve through reflection, repeated scenarios, and retrospective-based feedback.",
-    icon: "🧩"
+    title: "Practical Learning",
+    text: "Learn through reflection and application instead of only reading theory and definitions.",
+    icon: "🧠"
   }
 ];
 
 const learningCards = [
   {
     title: "Iteration and Reflection",
-    text: "Effective teams improve through repeated cycles, reviews, and improvements. Impact IQ mirrors that process in each scenario.",
+    text: "Strong teams improve through repeated cycles of planning, learning, and adjustment. Impact IQ mirrors that rhythm in each room.",
     icon: "🔁"
   },
   {
     title: "Team Collaboration",
-    text: "Players see how communication, alignment, and decision timing affect the whole team.",
+    text: "Players see how communication quality, alignment, and timing affect the entire team, not just one person.",
     icon: "🤝"
   },
   {
-    title: "Retrospective Feedback",
-    text: "After each scenario, the platform shows what went well, what could improve, and what impact the decision had.",
+    title: "Retrospective Thinking",
+    text: "After each scenario, the platform explains what happened, why it mattered, and how a stronger decision could improve outcomes.",
     icon: "✅"
   }
 ];
@@ -138,7 +138,7 @@ const rooms = [
         score: 5,
         resultType: "needs-improvement",
         reason:
-          "This may satisfy the stakeholder temporarily but creates pressure on the team and risks burnout or quality issues."
+          "This may satisfy the stakeholder temporarily but creates pressure on the team and increases the risk of burnout, missed quality checks, and unstable delivery."
       }
     ]
   },
@@ -243,7 +243,7 @@ const rooms = [
         score: 10,
         resultType: "average",
         reason:
-          "The team attempts to resolve the issue quickly to maintain the release schedule. While this may work in the short term, the rushed fix may introduce additional pressure on the team."
+          "The team attempts to resolve the issue quickly to maintain the release schedule. While this may work in the short term, the rushed fix may introduce extra pressure and fresh defects."
       }
     ]
   }
