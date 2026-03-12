@@ -23,14 +23,13 @@
   </div>
 
   <div class="site-shell">
-    <header class="navbar glass reveal">
+    <header class="navbar glass">
       <div class="brand">
         <div class="brand-logo-wrap">
-          <img src="assets/logo/impact.png" class="brand-logo" alt="Impact IQ Logo" />
+          <img src="assets/logo/impact.png" class="brand-logo" alt="Impact IQ logo" />
         </div>
 
         <div class="brand-text">
-          <p class="brand-title">Impact IQ</p>
           <p class="brand-subtitle">Corporate decision simulation platform</p>
         </div>
       </div>
@@ -44,7 +43,7 @@
       </nav>
 
       <button class="btn btn-primary nav-cta" id="openSimulationTop">
-        Choose Simulation →
+        Choose Simulation
       </button>
     </header>
 
@@ -56,7 +55,7 @@
           <h1>Train Your Corporate Decision Skills Before You Enter the Workplace</h1>
 
           <p class="hero-text">
-            Impact IQ is a simulation platform where users step into real corporate roles and experience corporate project environments.
+            Impact IQ is a simulation platform where users step into real corporate roles and experience Agile project environments.
           </p>
 
           <p class="hero-text">
@@ -69,10 +68,12 @@
 
           <div class="hero-actions">
             <button class="btn btn-primary large" id="openSimulationHero">
-              Choose Simulation →
+              Choose Simulation
             </button>
 
-            <a href="#how" class="btn btn-secondary large">Learn How It Works</a>
+            <a href="#how" class="btn btn-secondary large">
+              Learn How It Works
+            </a>
           </div>
         </div>
 
@@ -85,10 +86,13 @@
               <p class="mini-label">Simulation Interface</p>
               <h3>Choose Your Role</h3>
             </div>
+
             <span class="step-badge">Step 1</span>
           </div>
 
-          <p class="panel-text">Select a role in the project team to start the simulation.</p>
+          <p class="panel-text">
+            Select a role in the project team to start the simulation.
+          </p>
 
           <div class="hero-role-list" id="heroRoleList"></div>
 
@@ -99,7 +103,7 @@
         </div>
       </section>
 
-      <section id="about" class="content-section glass reveal section-anchor">
+      <section id="about" class="content-section glass section-anchor reveal">
         <div class="section-title center">
           <p class="section-eyebrow">About Impact IQ</p>
           <h2>Understanding How Corporate Projects Work</h2>
@@ -117,7 +121,7 @@
         <div class="info-grid" id="aboutCards"></div>
       </section>
 
-      <section id="how" class="content-section glass reveal section-anchor">
+      <section id="how" class="content-section glass section-anchor reveal">
         <div class="section-title center">
           <p class="section-eyebrow">How Simulation Works</p>
           <h2>Learning Through Decision Making</h2>
@@ -126,7 +130,7 @@
         <div class="steps-grid" id="stepsGrid"></div>
       </section>
 
-      <section id="learning" class="content-section glass reveal section-anchor">
+      <section id="learning" class="content-section glass section-anchor reveal">
         <div class="section-title center">
           <p class="section-eyebrow">Learning Through Agile</p>
           <h2>Concepts Applied in the Simulation</h2>
@@ -135,7 +139,7 @@
         <div class="info-grid" id="learningCards"></div>
       </section>
 
-      <section id="roles" class="content-section glass reveal section-anchor">
+      <section id="roles" class="content-section glass section-anchor reveal">
         <div class="section-title center">
           <p class="section-eyebrow">Experience Corporate Roles</p>
           <h2>Explore the Project from Different Perspectives</h2>
@@ -144,21 +148,22 @@
         <div class="role-grid" id="rolesGrid"></div>
       </section>
 
-      <section id="start" class="content-section glass reveal cta-section section-anchor">
+      <section id="start" class="content-section glass cta-section section-anchor reveal">
         <div class="cta-box">
           <h2>Ready to Experience Corporate Project Decisions?</h2>
+
           <p class="single-line">
             Step into a professional role, face workplace scenarios, and discover your Impact IQ.
           </p>
 
           <button class="btn btn-primary large" id="openSimulationBottom">
-            Choose Simulation →
+            Choose Simulation
           </button>
         </div>
       </section>
     </main>
 
-    <footer class="footer reveal">
+    <footer class="footer">
       <p class="footer-title">Impact IQ</p>
       <p class="footer-text">Learn Agile. Understand Teams. Make Better Decisions.</p>
     </footer>
@@ -166,7 +171,7 @@
 
   <!-- Disclaimer Modal -->
   <div class="modal-overlay hidden" id="disclaimerModal">
-    <div class="modal glass modal-medium scale-in">
+    <div class="modal glass modal-medium">
       <button class="modal-close" id="closeDisclaimer">×</button>
 
       <div class="modal-header">
@@ -180,14 +185,22 @@
       <div class="selected-role-chip hidden" id="selectedRoleChip"></div>
 
       <div class="modal-content-text">
-        <p>Impact IQ is an educational simulation developed for learning and training purposes.</p>
-        <p>The scenarios presented illustrate situations that may occur in corporate project environments.</p>
-        <p>The platform encourages reflection, communication awareness, and decision-making skills in project teams.</p>
+        <p>
+          Impact IQ is an educational simulation developed for learning and training purposes.
+        </p>
+        <p>
+          The scenarios presented illustrate situations that may occur in corporate project environments.
+        </p>
+        <p>
+          The platform encourages reflection, communication awareness, and decision-making skills in project teams.
+        </p>
       </div>
 
       <label class="checkbox-box">
         <input type="checkbox" id="acknowledgeCheckbox" />
-        <span>I have read and understood the disclaimer and agree to proceed with the simulation.</span>
+        <span>
+          I have read and understood the disclaimer and agree to proceed with the simulation.
+        </span>
       </label>
 
       <div class="modal-actions">
@@ -197,9 +210,9 @@
     </div>
   </div>
 
-  <!-- Role Picker Modal -->
+  <!-- Role Modal -->
   <div class="modal-overlay hidden" id="roleModal">
-    <div class="modal glass modal-large scale-in">
+    <div class="modal glass modal-large">
       <button class="modal-close" id="closeRoleModal">×</button>
 
       <div class="modal-header between">
@@ -210,6 +223,7 @@
             Select a role to begin the simulation. Each role represents a different responsibility within a project team.
           </p>
         </div>
+
         <div class="mission-setup-badge">Mission Setup</div>
       </div>
 
@@ -218,13 +232,15 @@
       <div class="selected-role-box">
         <p class="mini-label">Selected Role</p>
         <h4 id="selectedRoleTitle">No role selected yet</h4>
-        <p id="selectedRoleNote" class="subtle">Select Project Manager to enable the Start Simulation button.</p>
+        <p id="selectedRoleNote" class="subtle">
+          Select Project Manager to enable the Start Simulation button.
+        </p>
       </div>
 
       <div class="sticky-actions">
         <p class="subtle">Choose a role to experience project challenges.</p>
         <button class="btn btn-primary" id="startSimulationBtn" disabled>
-          Start Simulation →
+          Start Simulation
         </button>
       </div>
     </div>
@@ -232,12 +248,13 @@
 
   <!-- Simulation Modal -->
   <div class="modal-overlay hidden" id="simulationModal">
-    <div class="simulation-shell scale-in">
+    <div class="simulation-shell">
       <div class="simulation-top">
         <div>
           <p class="section-eyebrow left">Project Manager Simulation</p>
           <h2 id="roomHeading">Room 1 – Mid-Sprint Request</h2>
         </div>
+
         <button class="modal-close sim-close" id="closeSimulation">×</button>
       </div>
 
@@ -288,6 +305,7 @@
               <p class="mini-label">Impact</p>
               <h3 id="resultTitle">Result</h3>
             </div>
+
             <div class="result-badge" id="resultBadge">Excellent Approach</div>
           </div>
 
@@ -298,10 +316,12 @@
                   <p>Team Collaboration</p>
                   <strong id="teamValue">0</strong>
                 </div>
+
                 <div class="stat-box">
                   <p>Stakeholder Impact</p>
                   <strong id="stakeholderValue">0</strong>
                 </div>
+
                 <div class="stat-box">
                   <p>Leadership Confidence</p>
                   <strong id="leadershipValue">0</strong>
@@ -326,6 +346,7 @@
                     <p class="mini-label">Room Stats</p>
                     <h3>Live Impact Panel</h3>
                   </div>
+
                   <div class="score-pill" id="scorePill">+0 Points</div>
                 </div>
 
@@ -370,25 +391,26 @@
                 </div>
 
                 <div class="score-actions">
-                  <button class="btn btn-primary hidden" id="nextRoomBtn">Next Room →</button>
+                  <button class="btn btn-primary hidden" id="nextRoomBtn">Next Room</button>
                   <button class="btn btn-secondary hidden" id="finishBtn">Finish Simulation</button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div><!-- simulation-stack -->
+        </div><!-- resultPanel -->
+      </div>
     </div>
   </div>
 
   <!-- Impact Modal -->
   <div class="modal-overlay hidden" id="impactModal">
-    <div class="simulation-shell scale-in">
+    <div class="simulation-shell">
       <div class="simulation-top">
         <div>
           <p class="section-eyebrow left">Simulation Debrief</p>
           <h2>Final Reflection</h2>
         </div>
+
         <button class="modal-close sim-close" id="closeImpactModal">×</button>
       </div>
 
@@ -437,8 +459,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </div><!-- simulation-stack -->
+        </div><!-- sim-card -->
+      </div>
     </div>
   </div>
 
