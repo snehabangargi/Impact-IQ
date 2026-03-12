@@ -96,13 +96,7 @@ const impactScreenData = {
     "Your decisions influenced Team Collaboration, Stakeholder Impact, and Leadership Confidence.",
   subIntro:
     "Project leadership is about balancing people, expectations, and decisions under pressure.",
-  workedWell:
-    "You recognised how decisions affect both the team and project outcomes, helping maintain collaboration in several situations.",
-  canImprove:
-    "Some choices reacted quickly to pressure. Stronger results come from pausing, gathering team input, and communicating trade-offs clearly.",
   maxScore: 80,
-  badge: "Emerging Project Leader 🏅",
-  summary: "Your decisions show developing leadership awareness.",
   resources: [
     {
       title: "Scrum: The Art of Doing Twice the Work in Half the Time – Jeff Sutherland",
