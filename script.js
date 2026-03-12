@@ -387,9 +387,18 @@ function setupSmoothScroll() {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
       const target = document.querySelector(targetId);
+
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        const headerOffset = window.innerWidth <= 820 ? 90 : 110;
+        const targetPosition =
+          target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
       }
     });
   });
