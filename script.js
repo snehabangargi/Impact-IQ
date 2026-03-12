@@ -97,14 +97,17 @@ function createInfoCard(item) {
 }
 
 function renderAboutCards() {
+  aboutCardsEl.innerHTML = "";
   aboutCards.forEach((item) => aboutCardsEl.appendChild(createInfoCard(item)));
 }
 
 function renderLearningCards() {
+  learningCardsEl.innerHTML = "";
   learningCards.forEach((item) => learningCardsEl.appendChild(createInfoCard(item)));
 }
 
 function renderRolesGrid() {
+  rolesGridEl.innerHTML = "";
   roles.forEach((role) => rolesGridEl.appendChild(createInfoCard(role)));
 }
 
@@ -167,6 +170,7 @@ function openDisclaimer(roleName = null) {
   if (roleName) {
     selectedRole = roleName;
   }
+
   acknowledgeCheckbox.checked = false;
   proceedDisclaimer.disabled = true;
 
@@ -200,10 +204,14 @@ function closeRoleModal() {
 
 function openSimulation() {
   if (selectedRole !== "Project Manager") return;
+
   currentRoom = 1;
   selectedOption = null;
+
   roleModal.classList.add("hidden");
   simulationModal.classList.remove("hidden");
+  document.body.classList.add("no-scroll");
+
   renderRoom();
 }
 
@@ -264,6 +272,7 @@ function animateNumber(element, target) {
   let start = 0;
   const duration = 500;
   const increment = Math.max(1, Math.ceil(target / 25));
+
   const timer = setInterval(() => {
     start += increment;
     if (start >= target) {
@@ -372,7 +381,10 @@ function setupButtons() {
     proceedDisclaimer.disabled = !acknowledgeCheckbox.checked;
   });
 
-  proceedDisclaimer.addEventListener("click", openRoleModal);
+  proceedDisclaimer.addEventListener("click", () => {
+    document.body.classList.add("no-scroll");
+    openRoleModal();
+  });
 
   document.getElementById("closeRoleModal").addEventListener("click", closeRoleModal);
   startSimulationBtn.addEventListener("click", openSimulation);
@@ -421,6 +433,19 @@ function setupRevealAnimation() {
   revealElements.forEach((el) => observer.observe(el));
 }
 
+function setupPointerGlow() {
+  document.querySelectorAll(".info-card, .step-card, .role-card, .hero-role-item, .option-card").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty("--mx", `${x}px`);
+      card.style.setProperty("--my", `${y}px`);
+    });
+  });
+}
+
 function init() {
   renderHeroRoles();
   renderAboutCards();
@@ -430,17 +455,7 @@ function init() {
   setupButtons();
   setupSmoothScroll();
   setupRevealAnimation();
-
-  document.querySelectorAll(".info-card, .step-card, .role-card, .hero-role-item, .option-card").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      card.style.setProperty("--mx", `${x}px`);
-      card.style.setProperty("--my`, `${y}px`);
-    });
-  });
+  setupPointerGlow();
 }
 
 init();
