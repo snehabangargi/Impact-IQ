@@ -1139,4 +1139,19 @@ button {
     width: 64px;
     height: 64px;
   }
+  .role-card p {
+  color: #cbd5ff;
+}
+
+.role-card h4 {
+  color: #ffffff;
+}
+
+.selected-role-box p {
+  color: #cbd5ff;
+}
+
+.selected-role-box h4 {
+  color: #ffffff;
+}
 }
