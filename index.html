@@ -24,22 +24,21 @@
 
   <div class="site-shell">
     <header class="navbar glass">
-  <div class="brand">
-    <div class="brand-logo-wrap">
-      <img src="assets/logo/impact.png" alt="Impact IQ logo" class="brand-logo" />
-    </div>
-    <p class="brand-subtitle">Think. Act. Improve.</p>
-  </div>
+      <div class="brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo/impact.png" alt="Impact IQ logo" class="brand-logo" />
+        </div>
+        <p class="brand-subtitle">Think. Act. Improve.</p>
+      </div>
 
-  <nav class="nav-links">
-    <a href="#about">About</a>
-    <a href="#how">How It Works</a>
-    <a href="#learning">Learning</a>
-    <a href="#roles">Roles</a>
-  </nav>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#how">How It Works</a>
+        <a href="#learning">Learning</a>
+        <a href="#roles">Roles</a>
+      </nav>
 
-  <button class="btn btn-primary" id="openSimulationTop">Choose Simulation</button>
-</header>
+      <button class="btn btn-primary" id="openSimulationTop">Choose Simulation</button>
     </header>
 
     <main>
@@ -204,7 +203,7 @@
       <div class="selected-role-box">
         <p class="mini-label">Selected Role</p>
         <h4 id="selectedRoleTitle">No role selected yet</h4>
-        <p id="selectedRoleNote" class="subtle">Select Project Manager to enable the Start Simulation button.</p>
+        <p id="selectedRoleNote" class="subtle">Select a role to enable the Start Simulation button.</p>
       </div>
 
       <div class="sticky-actions">
@@ -219,7 +218,7 @@
     <div class="simulation-shell">
       <div class="simulation-top">
         <div>
-          <p class="section-eyebrow left">Project Manager Simulation</p>
+          <p class="section-eyebrow left" id="simulationRoleLabel">Project Manager Simulation</p>
           <h2 id="roomHeading">Room 1 – Mid-Sprint Request</h2>
         </div>
         <button class="modal-close sim-close" id="closeSimulation">×</button>
@@ -279,15 +278,15 @@
             <div class="result-left">
               <div class="stat-grid">
                 <div class="stat-box">
-                  <p>Team Collaboration</p>
+                  <p id="labelOne">Team Collaboration</p>
                   <strong id="teamValue">0</strong>
                 </div>
                 <div class="stat-box">
-                  <p>Stakeholder Impact</p>
+                  <p id="labelTwo">Stakeholder Impact</p>
                   <strong id="stakeholderValue">0</strong>
                 </div>
                 <div class="stat-box">
-                  <p>Leadership Confidence</p>
+                  <p id="labelThree">Leadership Confidence</p>
                   <strong id="leadershipValue">0</strong>
                 </div>
               </div>
@@ -315,7 +314,7 @@
 
                 <div class="bar-group">
                   <div class="bar-meta">
-                    <span>Team Collaboration</span>
+                    <span id="barLabelOne">Team Collaboration</span>
                     <span id="teamBarText">0</span>
                   </div>
                   <div class="bar-track"><div class="bar-fill purple" id="teamBar"></div></div>
@@ -323,7 +322,7 @@
 
                 <div class="bar-group">
                   <div class="bar-meta">
-                    <span>Stakeholder Impact</span>
+                    <span id="barLabelTwo">Stakeholder Impact</span>
                     <span id="stakeholderBarText">0</span>
                   </div>
                   <div class="bar-track"><div class="bar-fill green" id="stakeholderBar"></div></div>
@@ -331,7 +330,7 @@
 
                 <div class="bar-group">
                   <div class="bar-meta">
-                    <span>Leadership Confidence</span>
+                    <span id="barLabelThree">Leadership Confidence</span>
                     <span id="leadershipBarText">0</span>
                   </div>
                   <div class="bar-track"><div class="bar-fill blue" id="leadershipBar"></div></div>
