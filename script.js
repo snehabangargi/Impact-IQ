@@ -101,6 +101,11 @@ document.addEventListener("DOMContentLoaded", function () {
       first: "Team Collaboration",
       second: "Sprint Flow",
       third: "Agile Discipline"
+    },
+    "Business Analyst": {
+      first: "Requirement Clarity",
+      second: "Stakeholder Alignment",
+      third: "Analysis Effectiveness"
     }
   };
 
@@ -589,6 +594,247 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  const businessAnalystSimulation = {
+    role: "Business Analyst",
+    rooms: [
+      {
+        roomNumber: 1,
+        title: "Hidden Requirement Risk",
+        mission: "Identify missing details before development begins.",
+        intro: "During backlog refinement, a stakeholder explains a new feature for generating customer reports.",
+        promptA: "The description sounds clear at first, but when the development team asks questions, several behaviours remain undefined.",
+        quoteA: "For example, the report format and filtering rules are not fully explained.",
+        promptB: "The Product Owner wants to move forward quickly so the sprint planning can stay on schedule.",
+        quoteB: "The development team looks to you for clarification.",
+        closing: "You need to decide how to handle the requirement.",
+        bestExplanation:
+          "A Business Analyst ensures that requirements are clear before development begins. Asking the right questions early reduces rework and supports better collaboration between stakeholders and the development team.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Accept the current explanation and allow the team to begin development",
+            action:
+              "You accept the stakeholder explanation as sufficient and allow the team to continue without deeper clarification.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Starting development without clear requirements increases the risk of building the wrong functionality."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Ask additional questions and work with the stakeholder to clarify the missing report rules",
+            action:
+              "You facilitate deeper analysis with the stakeholder and team so the missing report behaviour is clarified before work begins.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Clarifying details early prevents misunderstandings and helps the development team build the correct solution."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Allow development to begin while documenting open questions for later",
+            action:
+              "You let development move forward but record unresolved questions to revisit after implementation starts.",
+            impact: { team: 50, stakeholder: 75, leadership: 70 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "Progress continues, but unresolved questions may still create confusion later."
+          }
+        ]
+      },
+      {
+        roomNumber: 2,
+        title: "Late Scope Expansion",
+        mission: "Manage new requests without disrupting the current plan.",
+        intro: "After sprint planning is completed, a stakeholder requests an additional dashboard feature related to the current sprint’s work.",
+        promptA: "They explain that the feature would be very useful for the upcoming client presentation.",
+        quoteA: "However, the development team has already committed to the sprint backlog.",
+        promptB: "The stakeholder is hoping the feature can still be added.",
+        quoteB: "The team is waiting for your response.",
+        closing: "You must decide how to manage the request.",
+        bestExplanation:
+          "Business Analysts help maintain clarity in project scope. New ideas are valuable, but they must be reviewed and prioritised properly within the backlog.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Agree to include the new feature immediately so the stakeholder remains satisfied",
+            action:
+              "You accept the request straight away and ask the team to absorb the new feature into the current sprint.",
+            impact: { team: 45, stakeholder: 80, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Adding scope during the sprint can disrupt planning and reduce delivery stability."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Explain the sprint commitment and suggest reviewing the request during the next backlog refinement session",
+            action:
+              "You acknowledge the value of the request but guide it into the backlog process for proper review and prioritisation.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Managing scope changes through the backlog keeps project planning structured and transparent."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Ask the developers if they can quickly add the feature without affecting other work",
+            action:
+              "You check whether the team can fit the feature in informally without a formal reprioritisation step.",
+            impact: { team: 70, stakeholder: 50, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "The feature might be delivered quickly, but the process may bypass proper planning."
+          }
+        ]
+      },
+      {
+        roomNumber: 3,
+        title: "Conflicting Stakeholder Priorities",
+        mission: "Align stakeholders with different expectations.",
+        intro: "Two stakeholders are discussing the design of a new customer onboarding feature.",
+        promptA: "One stakeholder wants a detailed registration process for collecting more data.",
+        quoteA: "Another stakeholder believes the process should be simplified to reduce user friction.",
+        promptB: "Both stakeholders strongly support their approach.",
+        quoteB: "The development team is waiting for a clear direction.",
+        closing: "You need to guide the discussion toward a decision.",
+        bestExplanation:
+          "A Business Analyst helps stakeholders understand trade-offs and guides discussions toward informed decisions.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Choose the simpler approach so development can begin immediately",
+            action:
+              "You choose one approach quickly so the team can begin work without further discussion.",
+            impact: { team: 75, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Quick decisions move work forward but may ignore important stakeholder concerns."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Facilitate a discussion to understand both perspectives and analyse the impact of each option",
+            action:
+              "You guide a structured conversation to uncover stakeholder priorities and evaluate the trade-offs together.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Analysing stakeholder goals helps identify the best solution for both the product and the users."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Document both options and ask the Product Owner to decide later",
+            action:
+              "You capture the disagreement and escalate the decision rather than facilitating alignment yourself.",
+            impact: { team: 75, stakeholder: 50, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "Escalating the decision may resolve the conflict but avoids deeper analysis."
+          }
+        ]
+      },
+      {
+        roomNumber: 4,
+        title: "UAT Reality Check",
+        mission: "Manage feedback discovered during testing.",
+        intro: "During User Acceptance Testing, stakeholders notice that a feature behaves differently from what they expected.",
+        promptA: "However, when reviewing the original requirement documentation, the development team confirms that the feature was built exactly as described.",
+        quoteA: "The stakeholders now request adjustments.",
+        promptB: "The team must decide whether this is a change request or a misunderstanding.",
+        quoteB: "You need to review the situation carefully.",
+        closing: "You must decide the next step.",
+        bestExplanation:
+          "Business Analysts help resolve misunderstandings between stakeholders and the development team by reviewing requirements and ensuring expectations are aligned.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Ask the development team to quickly modify the feature",
+            action:
+              "You request an immediate change so the feature better matches what stakeholders now expect.",
+            impact: { team: 45, stakeholder: 80, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Changing the feature immediately may solve the issue temporarily but ignores the root cause of the misunderstanding."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Review the original requirements with the stakeholders and clarify expectations before deciding next steps",
+            action:
+              "You bring the documentation and stakeholder expectations together to determine whether the issue is a misunderstanding or a valid change request.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Revisiting the requirement helps determine whether the issue is a misunderstanding or a new change request."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Document the feedback and schedule the changes for a future release",
+            action:
+              "You record the requested changes for later without immediately resolving the expectation gap.",
+            impact: { team: 75, stakeholder: 50, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "The issue is recorded, but stakeholders may remain frustrated if expectations are not clarified."
+          }
+        ]
+      }
+    ],
+    impactScreen: {
+      title: "Simulation Debrief",
+      intro:
+        "Your decisions influenced Requirement Clarity, Stakeholder Alignment, and Analysis Effectiveness.",
+      subIntro:
+        "Business Analysts help organisations translate stakeholder needs into clear, structured requirements that guide successful project delivery.",
+      workedWell:
+        "You demonstrated awareness of how unclear requirements and misaligned expectations can affect project outcomes.",
+      canImprove:
+        "Some situations required deeper questioning and stronger stakeholder facilitation to fully align expectations before development decisions were made.",
+      badge: "Requirement Strategist 🏅",
+      resources: [
+        {
+          title: "BABOK Guide",
+          link: "https://www.iiba.org/standards-and-resources/babok/"
+        },
+        {
+          title: "User Story Mapping",
+          link: "https://www.jpattonassociates.com/user-story-mapping/"
+        },
+        {
+          title: "The Phoenix Project",
+          link: "https://itrevolution.com/product/the-phoenix-project/"
+        },
+        {
+          title: "Lean Analytics",
+          link: "https://leananalyticsbook.com/"
+        }
+      ],
+      disclaimer: "Disclaimer: Resources shared for educational support only."
+    }
+  };
+
   let selectedRole = null;
   let currentRoom = 1;
   let selectedOption = null;
@@ -694,6 +940,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getRoleSimulation(role) {
     if (role === "Scrum Master") return scrumMasterSimulation;
+    if (role === "Business Analyst") return businessAnalystSimulation;
     return projectManagerSimulation;
   }
 
@@ -811,7 +1058,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     selectedRoleTitle.textContent = selectedRole || "No role selected yet";
 
-    if (selectedRole === "Project Manager" || selectedRole === "Scrum Master") {
+    if (
+      selectedRole === "Project Manager" ||
+      selectedRole === "Scrum Master" ||
+      selectedRole === "Business Analyst"
+    ) {
       selectedRoleNote.textContent =
         `${selectedRole} simulation is ready. Start Simulation is now enabled.`;
       startSimulationBtn.disabled = false;
@@ -863,7 +1114,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openSimulation() {
-    if (!(selectedRole === "Project Manager" || selectedRole === "Scrum Master")) return;
+    if (
+      !(
+        selectedRole === "Project Manager" ||
+        selectedRole === "Scrum Master" ||
+        selectedRole === "Business Analyst"
+      )
+    ) {
+      return;
+    }
 
     currentRoom = 1;
     selectedOption = null;
@@ -1143,7 +1402,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderHeroRoles();
   renderInfoGrid(aboutCardsEl, aboutCards);
   renderInfoGrid(learningCardsEl, learningCards);
-  renderRolesGrid();
+  renderInfoGrid(rolesGridEl, roles);
   renderSteps();
   setupButtons();
   setupSmoothScroll();
