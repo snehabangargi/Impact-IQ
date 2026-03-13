@@ -92,22 +92,27 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   const roleMetricLabels = {
-    "Project Manager": {
-      first: "Team Collaboration",
-      second: "Stakeholder Impact",
-      third: "Leadership Confidence"
-    },
-    "Scrum Master": {
-      first: "Team Collaboration",
-      second: "Sprint Flow",
-      third: "Agile Discipline"
-    },
-    "Business Analyst": {
-      first: "Requirement Clarity",
-      second: "Stakeholder Alignment",
-      third: "Analysis Effectiveness"
-    }
-  };
+  "Project Manager": {
+    first: "Team Collaboration",
+    second: "Stakeholder Impact",
+    third: "Leadership Confidence"
+  },
+  "Scrum Master": {
+    first: "Team Collaboration",
+    second: "Sprint Flow",
+    third: "Agile Discipline"
+  },
+  "Business Analyst": {
+    first: "Requirement Clarity",
+    second: "Stakeholder Alignment",
+    third: "Analysis Effectiveness"
+  },
+  "HR Executive": {
+    first: "Employee Wellbeing",
+    second: "Team Culture",
+    third: "Organisational Trust"
+  }
+};
 
   const projectManagerSimulation = {
     role: "Project Manager",
@@ -834,6 +839,246 @@ document.addEventListener("DOMContentLoaded", function () {
       disclaimer: "Disclaimer: Resources shared for educational support only."
     }
   };
+  const hrExecutiveSimulation = {
+  role: "HR Executive",
+  rooms: [
+    {
+      roomNumber: 1,
+      title: "Team Composition Decision",
+      mission: "Support leadership in forming balanced project teams.",
+      intro: "A new sprint team is being formed for an upcoming product initiative.",
+      promptA: "The engineering manager proposes assigning only senior developers so the team can deliver quickly.",
+      quoteA: "However, HR has been encouraging teams to include employees with different experience levels to support knowledge sharing and long-term capability growth.",
+      promptB: "The project leadership team asks HR for guidance.",
+      quoteB: "How should the team be formed?",
+      closing: "You need to recommend the strongest people strategy.",
+      bestExplanation:
+        "Strong delivery teams benefit from diverse experience levels where knowledge sharing and collaboration occur naturally.",
+      options: [
+        {
+          key: "A",
+          title: "Option A",
+          decision: "Allow the manager to assign only senior developers to maximise immediate delivery",
+          action:
+            "You support the manager’s plan to build a highly experienced team focused on short-term speed.",
+          impact: { team: 45, stakeholder: 45, leadership: 45 },
+          score: 5,
+          resultType: "needs-improvement",
+          reason:
+            "Highly specialised teams may deliver quickly but can reduce opportunities for mentoring and team development."
+        },
+        {
+          key: "B",
+          title: "Option B",
+          decision: "Recommend forming a balanced team that includes both experienced and developing employees",
+          action:
+            "You advise leadership to create a more balanced team that supports both delivery and long-term capability growth.",
+          impact: { team: 85, stakeholder: 85, leadership: 85 },
+          score: 20,
+          resultType: "excellent",
+          reason:
+            "Balanced teams promote learning, collaboration, and stronger long-term performance."
+        },
+        {
+          key: "C",
+          title: "Option C",
+          decision: "Allow the manager to decide but suggest mentoring sessions after the team is formed",
+          action:
+            "You let the manager proceed while recommending later mentoring support to offset the imbalance.",
+          impact: { team: 75, stakeholder: 50, leadership: 75 },
+          score: 10,
+          resultType: "average",
+          reason:
+            "Mentoring may help later, but team balance is still limited."
+        }
+      ]
+    },
+    {
+      roomNumber: 2,
+      title: "Inclusive Hiring Concern",
+      mission: "Ensure recruitment decisions remain fair and objective.",
+      intro: "During a hiring discussion for a developer role, one manager comments that a candidate may not “fit the current team culture”.",
+      promptA: "The candidate meets all technical requirements and has experience working in iterative project environments.",
+      quoteA: "Another interviewer quietly raises concern that the comment may reflect unconscious bias.",
+      promptB: "The hiring panel is waiting for HR guidance.",
+      quoteB: "How should the decision process continue?",
+      closing: "You need to protect fairness and trust in hiring.",
+      bestExplanation:
+        "HR helps organisations make hiring decisions based on clear criteria rather than subjective perceptions.",
+      options: [
+        {
+          key: "A",
+          title: "Option A",
+          decision: "Allow the hiring manager to make the final decision",
+          action:
+            "You leave the final call with the hiring manager without addressing the concern raised in the discussion.",
+          impact: { team: 45, stakeholder: 45, leadership: 45 },
+          score: 5,
+          resultType: "needs-improvement",
+          reason:
+            "Ignoring bias concerns can reduce fairness and trust in recruitment decisions."
+        },
+        {
+          key: "B",
+          title: "Option B",
+          decision: "Encourage the panel to evaluate candidates using structured criteria based on role competencies",
+          action:
+            "You guide the panel back to role-based evaluation criteria and structured assessment instead of subjective impressions.",
+          impact: { team: 85, stakeholder: 85, leadership: 85 },
+          score: 20,
+          resultType: "excellent",
+          reason:
+            "Structured evaluation helps focus decisions on skills and collaboration ability."
+        },
+        {
+          key: "C",
+          title: "Option C",
+          decision: "Suggest interviewing more candidates before making the final decision",
+          action:
+            "You recommend extending the process so the panel can compare more applicants before deciding.",
+          impact: { team: 75, stakeholder: 75, leadership: 70 },
+          score: 10,
+          resultType: "average",
+          reason:
+            "Additional candidates improve fairness but do not directly address the bias concern."
+        }
+      ]
+    },
+    {
+      roomNumber: 3,
+      title: "Continuous Feedback Culture",
+      mission: "Support performance conversations that encourage growth.",
+      intro: "Several employees say they feel unsure about how they are performing because feedback is only given during annual reviews.",
+      promptA: "Some team leaders suggest shorter feedback conversations after major project milestones or retrospectives.",
+      quoteA: "HR must decide whether to adjust the feedback approach.",
+      promptB: "The organisation is looking for a more supportive performance culture.",
+      quoteB: "What should HR recommend?",
+      closing: "You need to decide how feedback should be handled.",
+      bestExplanation:
+        "Regular feedback encourages learning, transparency, and stronger employee engagement.",
+      options: [
+        {
+          key: "A",
+          title: "Option A",
+          decision: "Maintain the annual review system without changes",
+          action:
+            "You keep the current review cycle in place and avoid changing the feedback model.",
+          impact: { team: 45, stakeholder: 45, leadership: 45 },
+          score: 5,
+          resultType: "needs-improvement",
+          reason:
+            "Limited feedback can make employees feel uncertain about expectations."
+        },
+        {
+          key: "B",
+          title: "Option B",
+          decision: "Introduce regular feedback conversations linked to project milestones and retrospectives",
+          action:
+            "You support shorter, more frequent feedback conversations connected to project work and reflection points.",
+          impact: { team: 85, stakeholder: 85, leadership: 85 },
+          score: 20,
+          resultType: "excellent",
+          reason:
+            "Frequent feedback helps employees improve continuously and feel supported."
+        },
+        {
+          key: "C",
+          title: "Option C",
+          decision: "Allow managers to decide individually how often feedback should be given",
+          action:
+            "You give managers flexibility to choose their own feedback frequency and method.",
+          impact: { team: 75, stakeholder: 50, leadership: 75 },
+          score: 10,
+          resultType: "average",
+          reason:
+            "Flexibility increases but feedback practices may become inconsistent."
+        }
+      ]
+    },
+    {
+      roomNumber: 4,
+      title: "Psychological Safety Concern",
+      mission: "Protect an environment where employees feel comfortable sharing ideas.",
+      intro: "During sprint review meetings, one senior engineer frequently criticises junior team members in a harsh tone.",
+      promptA: "Over time, some developers have stopped presenting ideas during team discussions.",
+      quoteA: "The team leader asks HR for guidance.",
+      promptB: "The issue is beginning to affect confidence and participation.",
+      quoteB: "How should HR respond?",
+      closing: "You need to support a healthier team environment.",
+      bestExplanation:
+        "Psychological safety allows teams to share ideas, experiment, and improve without fear of criticism.",
+      options: [
+        {
+          key: "A",
+          title: "Option A",
+          decision: "Ignore the behaviour and focus on project outcomes",
+          action:
+            "You avoid intervening and decide to prioritise delivery outcomes over team interaction concerns.",
+          impact: { team: 45, stakeholder: 45, leadership: 45 },
+          score: 5,
+          resultType: "needs-improvement",
+          reason:
+            "Ignoring negative behaviour may reduce participation and confidence within the team."
+        },
+        {
+          key: "B",
+          title: "Option B",
+          decision: "Work with leadership to promote constructive feedback and respectful communication",
+          action:
+            "You partner with team leadership to address the behaviour and reinforce healthier feedback norms.",
+          impact: { team: 85, stakeholder: 85, leadership: 85 },
+          score: 20,
+          resultType: "excellent",
+          reason:
+            "Constructive feedback practices encourage open discussion and collaboration."
+        },
+        {
+          key: "C",
+          title: "Option C",
+          decision: "Offer communication workshops for the team",
+          action:
+            "You arrange training and awareness sessions to improve communication across the group.",
+          impact: { team: 75, stakeholder: 75, leadership: 70 },
+          score: 10,
+          resultType: "average",
+          reason:
+            "Training increases awareness but may not immediately resolve behaviour."
+        }
+      ]
+    }
+  ],
+  impactScreen: {
+    title: "Simulation Debrief",
+    intro:
+      "Your decisions influenced Employee Wellbeing, Team Culture, and Organisational Trust.",
+    subIntro:
+      "HR leaders help organisations support collaborative teams, inclusive hiring, and healthy work environments.",
+    workedWell:
+      "You recognised how workplace culture and employee wellbeing influence team performance.",
+    canImprove:
+      "Some situations required earlier intervention to support communication, fairness, and employee confidence.",
+    badge: "People & Culture Champion 🏅",
+    resources: [
+      {
+        title: "CIPD People Profession Resources",
+        link: "https://www.cipd.co.uk/"
+      },
+      {
+        title: "Society for Human Resource Management",
+        link: "https://www.shrm.org/"
+      },
+      {
+        title: "The Culture Code",
+        link: "https://danielcoyle.com/the-culture-code/"
+      },
+      {
+        title: "Leaders Eat Last",
+        link: "https://simonsinek.com/books/leaders-eat-last/"
+      }
+    ],
+    disclaimer: "Disclaimer: Resources shared for educational support only."
+  }
+};
 
   let selectedRole = null;
   let currentRoom = 1;
@@ -939,10 +1184,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeImpactModal = el("closeImpactModal");
 
   function getRoleSimulation(role) {
-    if (role === "Scrum Master") return scrumMasterSimulation;
-    if (role === "Business Analyst") return businessAnalystSimulation;
-    return projectManagerSimulation;
-  }
+  if (role === "Scrum Master") return scrumMasterSimulation;
+  if (role === "Business Analyst") return businessAnalystSimulation;
+  if (role === "HR Executive") return hrExecutiveSimulation;
+  return projectManagerSimulation;
+}
 
   function getCurrentSimulation() {
     return getRoleSimulation(selectedRole);
@@ -1115,14 +1361,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openSimulation() {
     if (
-      !(
-        selectedRole === "Project Manager" ||
-        selectedRole === "Scrum Master" ||
-        selectedRole === "Business Analyst"
-      )
-    ) {
-      return;
-    }
+  selectedRole === "Project Manager" ||
+  selectedRole === "Scrum Master" ||
+  selectedRole === "Business Analyst" ||
+  selectedRole === "HR Executive"
+)  {
+  return;
+}
 
     currentRoom = 1;
     selectedOption = null;
