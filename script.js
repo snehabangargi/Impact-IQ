@@ -116,6 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
       first: "Product Quality",
       second: "Release Confidence",
       third: "Team Coordination"
+    },
+    "Developer": {
+      first: "Code Quality",
+      second: "Delivery Stability",
+      third: "Team Collaboration"
     }
   };
 
@@ -1327,6 +1332,247 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  const developerSimulation = {
+    role: "Developer",
+    rooms: [
+      {
+        roomNumber: 1,
+        title: "Legacy Code Integration",
+        mission: "Implement a feature while dealing with existing system constraints.",
+        intro: "You are building a new feature that depends on an older module in the system.",
+        promptA: "While reviewing the code, you notice the module has limited documentation and several complex functions.",
+        quoteA: "Changing it directly may affect other parts of the system.",
+        promptB: "You need to decide how to proceed with the implementation.",
+        quoteB: "What will you do?",
+        closing: "Your choice will affect stability and maintainability.",
+        bestExplanation:
+          "Developers must understand existing system architecture before modifying critical components.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Modify the existing module quickly to support your feature",
+            action:
+              "You make direct changes to the legacy module so the feature can move forward quickly.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Quick changes to legacy code may introduce unexpected issues."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Review the module carefully and discuss potential risks with the team before making changes",
+            action:
+              "You analyse the legacy module, identify dependencies, and collaborate with the team before implementing changes.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Understanding system dependencies helps avoid unintended side effects."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Build a temporary workaround without modifying the module",
+            action:
+              "You avoid touching the older module by creating a temporary workaround to support the new feature.",
+            impact: { team: 50, stakeholder: 80, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "The workaround avoids immediate risk but may increase system complexity later."
+          }
+        ]
+      },
+      {
+        roomNumber: 2,
+        title: "Test Environment Failure",
+        mission: "Investigate issues discovered during testing.",
+        intro: "QA reports that a feature works correctly on your local machine but fails in the shared testing environment.",
+        promptA: "The release deadline is approaching, and the issue appears inconsistent.",
+        quoteA: "The team needs to know whether the problem is in the code, the environment, or the configuration.",
+        promptB: "You need to decide how to respond.",
+        quoteB: "What will you do?",
+        closing: "The release depends on finding the cause.",
+        bestExplanation:
+          "Effective debugging requires collaboration and careful investigation of system environments.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Assume the testing environment is unstable and continue development",
+            action:
+              "You treat the issue as an environment problem and continue with other development work.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Ignoring test failures may allow hidden defects to reach production."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Work with QA to reproduce the issue and analyse differences between environments",
+            action:
+              "You collaborate with QA to compare environments, isolate variables, and identify the root cause.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Collaborative debugging helps identify root causes quickly."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Restart the testing environment and attempt deployment again",
+            action:
+              "You reset the environment and retry deployment to see whether the issue disappears.",
+            impact: { team: 75, stakeholder: 50, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "The issue may disappear temporarily but the underlying cause remains unclear."
+          }
+        ]
+      },
+      {
+        roomNumber: 3,
+        title: "Unexpected Performance Issue",
+        mission: "Identify and resolve performance risks in your implementation.",
+        intro: "While testing your feature, you notice that response time slows significantly when processing large data sets.",
+        promptA: "The feature works correctly but may affect system performance under heavy usage.",
+        quoteA: "You need to decide whether to treat this as a delivery issue now or later.",
+        promptB: "The team is waiting for your technical judgement.",
+        quoteB: "What will you do?",
+        closing: "Performance risk is now part of the delivery decision.",
+        bestExplanation:
+          "Developers should consider performance and scalability when implementing new features.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Ignore the issue since the feature technically works",
+            action:
+              "You treat the feature as complete because the functional behaviour is correct.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Performance issues can become major problems in production environments."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Investigate optimisation options and discuss the findings with the team",
+            action:
+              "You analyse the performance bottleneck, explore optimisation options, and share the findings with the team.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Early performance improvements prevent future scalability issues."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Deploy the feature and plan performance improvements later",
+            action:
+              "You allow the feature to move forward while creating a follow-up plan for performance improvement.",
+            impact: { team: 50, stakeholder: 80, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "The feature ships faster but performance risk remains."
+          }
+        ]
+      },
+      {
+        roomNumber: 4,
+        title: "Production Bug Investigation",
+        mission: "Respond effectively when users report unexpected behaviour.",
+        intro: "After release, users report that a feature occasionally fails when handling large datasets.",
+        promptA: "The issue was not detected during previous testing.",
+        quoteA: "Logs show inconsistent behaviour.",
+        promptB: "The problem may be deeper than a simple one-line fix.",
+        quoteB: "What will you do?",
+        closing: "You need to balance speed, diagnosis, and long-term reliability.",
+        bestExplanation:
+          "Developers strengthen system reliability by investigating problems thoroughly and collaborating with testing teams.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Assume the issue is rare and focus on upcoming development tasks",
+            action:
+              "You treat the issue as low priority and continue focusing on the next planned work.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Ignoring early reports can allow defects to spread across the system."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Analyse logs, reproduce the issue, and work with QA to identify the root cause",
+            action:
+              "You investigate logs, reproduce the defect, and collaborate with QA to understand why the issue escaped earlier checks.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Investigating the root cause improves both the fix and future testing coverage."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Apply a quick patch to prevent the failure temporarily",
+            action:
+              "You implement a temporary patch to reduce immediate failure while postponing deeper investigation.",
+            impact: { team: 50, stakeholder: 80, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "Quick fixes may reduce immediate impact but do not always solve the underlying issue."
+          }
+        ]
+      }
+    ],
+    impactScreen: {
+      title: "Simulation Debrief",
+      intro:
+        "Your decisions influenced Code Quality, Delivery Stability, and Team Collaboration.",
+      subIntro:
+        "Developers contribute to successful product delivery by writing reliable code, solving technical challenges, and working closely with the team.",
+      workedWell:
+        "You recognised how technical decisions influence system reliability and overall product performance.",
+      canImprove:
+        "Some situations required deeper investigation and collaboration to fully address technical risks.",
+      badge: "System Reliability Builder 🏅",
+      resources: [
+        {
+          title: "Clean Code",
+          link: "https://www.oreilly.com/library/view/clean-code/"
+        },
+        {
+          title: "The Pragmatic Programmer",
+          link: "https://pragprog.com/"
+        },
+        {
+          title: "Google Engineering Practices",
+          link: "https://google.github.io/eng-practices/"
+        },
+        {
+          title: "Refactoring Guru",
+          link: "https://refactoring.guru/"
+        }
+      ],
+      disclaimer: "Disclaimer: Resources shared for educational support only."
+    }
+  };
+
   let selectedRole = null;
   let currentRoom = 1;
   let selectedOption = null;
@@ -1435,6 +1681,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (role === "Business Analyst") return businessAnalystSimulation;
     if (role === "HR Executive") return hrExecutiveSimulation;
     if (role === "Quality Analyst") return qualityAnalystSimulation;
+    if (role === "Developer") return developerSimulation;
     return projectManagerSimulation;
   }
 
@@ -1557,7 +1804,8 @@ document.addEventListener("DOMContentLoaded", function () {
       selectedRole === "Scrum Master" ||
       selectedRole === "Business Analyst" ||
       selectedRole === "HR Executive" ||
-      selectedRole === "Quality Analyst"
+      selectedRole === "Quality Analyst" ||
+      selectedRole === "Developer"
     ) {
       selectedRoleNote.textContent =
         `${selectedRole} simulation is ready. Start Simulation is now enabled.`;
@@ -1616,7 +1864,8 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedRole === "Scrum Master" ||
         selectedRole === "Business Analyst" ||
         selectedRole === "HR Executive" ||
-        selectedRole === "Quality Analyst"
+        selectedRole === "Quality Analyst" ||
+        selectedRole === "Developer"
       )
     ) {
       return;
