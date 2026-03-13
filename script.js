@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       title: "Retrospective Thinking",
-      text: "After each scenario, the platform explains what happened, why it mattered, and how a stronger decision could improve outcomes.",
+      text: "After each simulation, the platform explains what happened, why it mattered, and how a stronger decision could improve outcomes.",
       icon: "✅"
     }
   ];
