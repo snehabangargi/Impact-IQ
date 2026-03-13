@@ -111,6 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
       first: "Employee Wellbeing",
       second: "Team Culture",
       third: "Organisational Trust"
+    },
+    "Quality Analyst": {
+      first: "Product Quality",
+      second: "Release Confidence",
+      third: "Team Coordination"
     }
   };
 
@@ -1081,6 +1086,247 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  const qualityAnalystSimulation = {
+    role: "Quality Analyst",
+    rooms: [
+      {
+        roomNumber: 1,
+        title: "Unclear Acceptance Criteria",
+        mission: "Ensure features are testable before development begins.",
+        intro: "During sprint planning, a new feature is added to the backlog.",
+        promptA: "The user story explains the functionality, but the acceptance criteria are very limited.",
+        quoteA: "The developer says they can start building the feature, but you are unsure how the behaviour should be validated.",
+        promptB: "Testing preparation is now at risk.",
+        quoteB: "What will you do?",
+        closing: "You need to decide how to protect product quality early.",
+        bestExplanation:
+          "Quality Analysts help ensure requirements are clear and testable before development begins.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Allow development to begin and create test cases later",
+            action:
+              "You allow the team to move ahead with development and postpone test design until more details emerge later.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Without clear acceptance criteria, testing may miss important behaviours."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Work with the Business Analyst and developer to clarify acceptance criteria before development begins",
+            action:
+              "You pause and collaborate with the Business Analyst and developer so expected behaviour becomes clear and testable.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Clear acceptance criteria help both developers and testers understand expected behaviour."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Document possible test scenarios based on assumptions",
+            action:
+              "You begin preparing test scenarios using likely assumptions while waiting for final clarification.",
+            impact: { team: 75, stakeholder: 50, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "Testing preparation begins, but assumptions may still lead to incorrect expectations."
+          }
+        ]
+      },
+      {
+        roomNumber: 2,
+        title: "Last-Minute Feature Change",
+        mission: "Maintain quality when requirements change during development.",
+        intro: "A developer informs you that a small change was made to improve the feature behaviour.",
+        promptA: "The change was implemented quickly and the team plans to release the feature soon.",
+        quoteA: "However, the updated behaviour was not part of the original test cases.",
+        promptB: "Release pressure is building.",
+        quoteB: "How should you respond?",
+        closing: "You need to decide whether testing should change before release.",
+        bestExplanation:
+          "Quality assurance requires adapting test coverage whenever product behaviour changes.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Skip additional testing since the change is small",
+            action:
+              "You treat the update as too minor to justify extra testing and allow release preparation to continue unchanged.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Even small changes can introduce unexpected defects."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Review the change with the developer and update test cases before release",
+            action:
+              "You review the modified behaviour, update the relevant test cases, and make sure release validation reflects the latest implementation.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Testing updated functionality ensures the release remains stable."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Perform a quick exploratory test to verify the change",
+            action:
+              "You run focused exploratory checks on the changed behaviour without fully updating the formal test suite.",
+            impact: { team: 75, stakeholder: 80, leadership: 50 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "Exploratory testing helps identify issues quickly but may not cover all scenarios."
+          }
+        ]
+      },
+      {
+        roomNumber: 3,
+        title: "Release Pressure",
+        mission: "Protect product quality when deadlines create pressure.",
+        intro: "The product release date is approaching and several minor defects remain unresolved.",
+        promptA: "The project manager suggests releasing the product and fixing the issues later.",
+        quoteA: "You must decide how to respond.",
+        promptB: "The team needs a clear quality perspective before release.",
+        quoteB: "What will you do?",
+        closing: "You need to guide the team toward an informed release decision.",
+        bestExplanation:
+          "Quality Analysts help teams balance delivery deadlines with product stability.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Approve the release without further discussion",
+            action:
+              "You accept the release plan as it is and do not raise additional concerns about the remaining defects.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Releasing with unresolved issues may reduce user trust."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Discuss defect severity with the team and evaluate the risk before release",
+            action:
+              "You review the remaining defects with the team, assess their impact, and support a risk-based release decision.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Understanding defect impact helps teams make informed release decisions."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Document the issues and allow the release to proceed",
+            action:
+              "You formally record the known defects and allow the release to continue with visibility but without deeper discussion.",
+            impact: { team: 50, stakeholder: 80, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "Transparency improves, but unresolved defects may still affect users."
+          }
+        ]
+      },
+      {
+        roomNumber: 4,
+        title: "Unexpected Production Issue",
+        mission: "Support investigation when defects appear after release.",
+        intro: "Shortly after deployment, users report that a feature occasionally fails when handling large datasets.",
+        promptA: "The issue did not appear during previous testing.",
+        quoteA: "The development team begins investigating.",
+        promptB: "The issue may point to a gap in test coverage or environment assumptions.",
+        quoteB: "How should quality support respond?",
+        closing: "You need to decide how quickly and deeply to investigate.",
+        bestExplanation:
+          "Quality assurance continues after release through investigation, learning, and improved testing strategies.",
+        options: [
+          {
+            key: "A",
+            title: "Option A",
+            decision: "Assume the issue is caused by user behaviour and wait for more reports",
+            action:
+              "You delay action and assume the problem may be isolated until more evidence appears.",
+            impact: { team: 45, stakeholder: 45, leadership: 45 },
+            score: 5,
+            resultType: "needs-improvement",
+            reason:
+              "Ignoring early defect signals may allow problems to grow."
+          },
+          {
+            key: "B",
+            title: "Option B",
+            decision: "Collaborate with developers to reproduce the issue and analyse possible causes",
+            action:
+              "You work with developers to reproduce the defect, analyse the conditions behind it, and understand why it escaped earlier testing.",
+            impact: { team: 85, stakeholder: 85, leadership: 85 },
+            score: 20,
+            resultType: "excellent",
+            reason:
+              "Investigating issues quickly helps teams resolve defects and improve testing coverage."
+          },
+          {
+            key: "C",
+            title: "Option C",
+            decision: "Record the issue and monitor the system for further incidents",
+            action:
+              "You log the issue carefully and monitor patterns over time before starting a deeper investigation.",
+            impact: { team: 75, stakeholder: 50, leadership: 75 },
+            score: 10,
+            resultType: "average",
+            reason:
+              "Monitoring provides insight but delays immediate investigation."
+          }
+        ]
+      }
+    ],
+    impactScreen: {
+      title: "Simulation Debrief",
+      intro:
+        "Your decisions influenced Product Quality, Release Confidence, and Team Coordination.",
+      subIntro:
+        "Quality Analysts help teams detect risks early, strengthen testing practices, and ensure stable product releases.",
+      workedWell:
+        "You recognised how testing decisions influence product reliability and user experience.",
+      canImprove:
+        "Some situations required deeper risk analysis to ensure defects and edge cases were fully addressed before release.",
+      badge: "Quality Guardian 🏅",
+      resources: [
+        {
+          title: "ISTQB Foundation Level",
+          link: "https://www.istqb.org/"
+        },
+        {
+          title: "Google Testing Blog",
+          link: "https://testing.googleblog.com/"
+        },
+        {
+          title: "The Art of Software Testing",
+          link: "https://www.wiley.com/en-us/The+Art+of+Software+Testing"
+        },
+        {
+          title: "Continuous Testing in DevOps",
+          link: "https://www.atlassian.com/continuous-delivery/testing"
+        }
+      ],
+      disclaimer: "Disclaimer: Resources shared for educational support only."
+    }
+  };
+
   let selectedRole = null;
   let currentRoom = 1;
   let selectedOption = null;
@@ -1188,6 +1434,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (role === "Scrum Master") return scrumMasterSimulation;
     if (role === "Business Analyst") return businessAnalystSimulation;
     if (role === "HR Executive") return hrExecutiveSimulation;
+    if (role === "Quality Analyst") return qualityAnalystSimulation;
     return projectManagerSimulation;
   }
 
@@ -1309,7 +1556,8 @@ document.addEventListener("DOMContentLoaded", function () {
       selectedRole === "Project Manager" ||
       selectedRole === "Scrum Master" ||
       selectedRole === "Business Analyst" ||
-      selectedRole === "HR Executive"
+      selectedRole === "HR Executive" ||
+      selectedRole === "Quality Analyst"
     ) {
       selectedRoleNote.textContent =
         `${selectedRole} simulation is ready. Start Simulation is now enabled.`;
@@ -1367,7 +1615,8 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedRole === "Project Manager" ||
         selectedRole === "Scrum Master" ||
         selectedRole === "Business Analyst" ||
-        selectedRole === "HR Executive"
+        selectedRole === "HR Executive" ||
+        selectedRole === "Quality Analyst"
       )
     ) {
       return;
@@ -1480,7 +1729,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showResult(room, option) {
-    const simulation = getCurrentSimulation();
     show(resultPanel);
 
     resultTitle.textContent = `Result for ${option.title}`;
@@ -1523,6 +1771,7 @@ document.addEventListener("DOMContentLoaded", function () {
       leadershipBarText.textContent = option.impact.leadership;
     }, 400);
 
+    const simulation = getCurrentSimulation();
     if (currentRoom < simulation.rooms.length) {
       show(nextRoomBtn);
       hide(finishBtn);
