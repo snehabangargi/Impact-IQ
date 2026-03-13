@@ -315,14 +315,17 @@ button {
 }
 
 .btn-secondary {
-  color: var(--text);
-  border-color: var(--line);
-  background: rgba(255,255,255,0.03);
+  color: #ffffff;
+  border-color: rgba(139, 92, 246, 0.35);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(109, 93, 252, 0.14));
+  box-shadow: 0 10px 24px rgba(109, 93, 252, 0.16);
 }
 
 .btn-secondary:hover {
   transform: translateY(-2px);
-  border-color: var(--line-strong);
+  border-color: rgba(196, 181, 253, 0.45);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.32), rgba(109, 93, 252, 0.22));
+  box-shadow: 0 14px 30px rgba(109, 93, 252, 0.22);
 }
 
 .btn.large {
