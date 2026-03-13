@@ -377,7 +377,8 @@ button {
 .progress-meta,
 .result-top,
 .impact-head,
-.modal-header.between {
+.modal-header.between,
+.modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
