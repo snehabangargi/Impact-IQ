@@ -1750,7 +1750,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="hero-role-icon">${role.icon}</div>
         <div class="hero-role-text">
           <p>${role.title}</p>
-          <small>Start scenario</small>
+          <small>Start Game</small>
         </div>
         <span class="hero-role-arrow">→</span>
       `;
