@@ -1132,39 +1132,54 @@ button {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.score-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-height: 100%;
 }
 
 .badge-earned-box {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-top: 18px;
-  margin-bottom: 18px;
+  flex: 1;
+  padding: 32px 0 18px;
+  margin: 12px 0 24px;
   text-align: center;
 }
 
 .badge-earned-image {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
+  width: min(100%, 460px);
+  max-width: 460px;
+  height: auto;
   display: block;
-  filter: drop-shadow(0 12px 24px rgba(139, 92, 246, 0.24));
-  transition: transform 0.25s ease, filter 0.25s ease;
+  margin: 0 auto 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(139, 92, 246, 0.34));
+  transition: transform 0.28s ease, filter 0.28s ease;
 }
 
 .badge-earned-image:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 16px 30px rgba(139, 92, 246, 0.34));
+  transform: scale(1.04);
+  filter: drop-shadow(0 26px 52px rgba(139, 92, 246, 0.44));
 }
 
-.badge-earned-box h3 {
+.badge-earned-box h3,
+#badgeText {
   margin: 0;
-  color: var(--text-soft);
-  font-size: 1.3rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
   text-align: center;
+  color: var(--text-soft);
+  font-weight: 800;
 }
 
 /* Responsive */
@@ -1185,6 +1200,11 @@ button {
 
   .result-grid {
     grid-template-columns: 1fr;
+  }
+
+  .badge-earned-image {
+    width: min(100%, 380px);
+    max-width: 380px;
   }
 }
 
@@ -1212,6 +1232,11 @@ button {
 
   .brand-logo {
     height: 62px;
+  }
+
+  .badge-earned-image {
+    width: min(100%, 320px);
+    max-width: 320px;
   }
 }
 
@@ -1281,107 +1306,19 @@ button {
     height: 54px;
   }
 
+  .badge-earned-box {
+    padding: 18px 0 10px;
+    margin-bottom: 18px;
+  }
+
   .badge-earned-image {
-    width: 90px;
-    height: 90px;
+    width: min(100%, 260px);
+    max-width: 260px;
+    margin-bottom: 18px;
   }
 
-  .badge-earned-box h3 {
-    font-size: 1.12rem;
+  .badge-earned-box h3,
+  #badgeText {
+    font-size: 1.2rem;
   }
 }
-/* ===== BADGE DISPLAY IMPROVEMENT ===== */
-
-.badge-earned{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-margin-top:20px;
-padding:20px 0;
-}
-
-.badge-image{
-width:220px;
-height:auto;
-margin-bottom:20px;
-transition:transform .3s ease;
-}
-
-.badge-image:hover{
-transform:scale(1.05);
-}
-
-#badgeText{
-font-size:1.4rem;
-font-weight:700;
-color:#ffffff;
-text-align:center;
-margin-top:10px;
-}
-
-/* make badge area visually dominant */
-.score-summary .badge-earned{
-margin-top:30px;
-padding:30px 10px;
-}
-
-/* laptop screens */
-@media (min-width:900px){
-.badge-image{
-width:300px;
-}
-}
-
-/* large desktop screens */
-@media (min-width:1400px){
-.badge-image{
-width:360px;
-}
-}
-/* ===== LARGE BADGE DISPLAY ===== */
-
-.badge-earned{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-margin-top:30px;
-padding:30px 0;
-width:100%;
-}
-
-.badge-image{
-width:420px;
-max-width:100%;
-height:auto;
-margin:30px auto;
-display:block;
-filter:drop-shadow(0 15px 30px rgba(0,0,0,0.5));
-}
-
-#badgeText{
-font-size:1.6rem;
-font-weight:700;
-text-align:center;
-color:#ffffff;
-margin-top:10px;
-}
-
-/* make right panel center aligned */
-.score-summary{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
-
-/* bigger on large screens */
-@media (min-width:1200px){
-
-.badge-image{
-width:500px;
-}
-
-}
-
