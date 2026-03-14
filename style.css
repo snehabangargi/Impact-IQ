@@ -1290,3 +1290,53 @@ button {
     font-size: 1.12rem;
   }
 }
+/* ===== BADGE DISPLAY IMPROVEMENT ===== */
+
+.badge-earned{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+margin-top:20px;
+padding:20px 0;
+}
+
+.badge-image{
+width:220px;
+height:auto;
+margin-bottom:20px;
+transition:transform .3s ease;
+}
+
+.badge-image:hover{
+transform:scale(1.05);
+}
+
+#badgeText{
+font-size:1.4rem;
+font-weight:700;
+color:#ffffff;
+text-align:center;
+margin-top:10px;
+}
+
+/* make badge area visually dominant */
+.score-summary .badge-earned{
+margin-top:30px;
+padding:30px 10px;
+}
+
+/* laptop screens */
+@media (min-width:900px){
+.badge-image{
+width:300px;
+}
+}
+
+/* large desktop screens */
+@media (min-width:1400px){
+.badge-image{
+width:360px;
+}
+}
+
