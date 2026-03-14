@@ -1142,6 +1142,7 @@ button {
   align-items: stretch;
   justify-content: flex-start;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .badge-earned-box {
@@ -1151,35 +1152,45 @@ button {
   align-items: center;
   justify-content: center;
   flex: 1;
-  padding: 32px 0 18px;
-  margin: 12px 0 24px;
+  padding: 12px 0 10px;
+  margin: 8px 0 14px;
   text-align: center;
 }
 
 .badge-earned-image {
-  width: min(100%, 460px);
-  max-width: 460px;
+  width: min(100%, 360px);
+  max-width: 360px;
   height: auto;
   display: block;
-  margin: 0 auto 24px;
+  margin: 0 auto 14px;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(139, 92, 246, 0.34));
+  filter: drop-shadow(0 16px 30px rgba(139, 92, 246, 0.28));
   transition: transform 0.28s ease, filter 0.28s ease;
 }
 
 .badge-earned-image:hover {
-  transform: scale(1.04);
-  filter: drop-shadow(0 26px 52px rgba(139, 92, 246, 0.44));
+  transform: scale(1.03);
+  filter: drop-shadow(0 20px 38px rgba(139, 92, 246, 0.36));
 }
 
 .badge-earned-box h3,
 #badgeText {
   margin: 0;
-  font-size: 1.75rem;
-  line-height: 1.2;
+  font-size: 1.55rem;
+  line-height: 1.18;
   text-align: center;
   color: var(--text-soft);
   font-weight: 800;
+}
+
+#impactModal .simulation-shell {
+  max-height: 92vh;
+}
+
+#impactModal .simulation-stack {
+  max-height: calc(92vh - 90px);
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
 /* Responsive */
@@ -1203,8 +1214,8 @@ button {
   }
 
   .badge-earned-image {
-    width: min(100%, 380px);
-    max-width: 380px;
+    width: min(100%, 320px);
+    max-width: 320px;
   }
 }
 
@@ -1235,8 +1246,8 @@ button {
   }
 
   .badge-earned-image {
-    width: min(100%, 320px);
-    max-width: 320px;
+    width: min(100%, 280px);
+    max-width: 280px;
   }
 }
 
@@ -1307,18 +1318,18 @@ button {
   }
 
   .badge-earned-box {
-    padding: 18px 0 10px;
-    margin-bottom: 18px;
+    padding: 8px 0 6px;
+    margin-bottom: 10px;
   }
 
   .badge-earned-image {
-    width: min(100%, 260px);
-    max-width: 260px;
-    margin-bottom: 18px;
+    width: min(100%, 220px);
+    max-width: 220px;
+    margin-bottom: 10px;
   }
 
   .badge-earned-box h3,
   #badgeText {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 }
