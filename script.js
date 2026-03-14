@@ -124,6 +124,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  const badgeImageMap = {
+    "Project Manager": "assets/badges/pm-badge.png",
+    "Scrum Master": "assets/badges/scrum-badge.png",
+    "Business Analyst": "assets/badges/ba-badge.png",
+    "HR Executive": "assets/badges/hr-badge.png",
+    "Quality Analyst": "assets/badges/qa-badge.png",
+    "Developer": "assets/badges/dev-badge.png"
+  };
+
   const projectManagerSimulation = {
     role: "Project Manager",
     rooms: [
@@ -1670,6 +1679,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const finalScoreNumber = el("finalScoreNumber");
   const impactSummaryText = el("impactSummaryText");
   const badgeText = el("badgeText");
+  const badgeImage = el("badgeImage");
   const resourceList = el("resourceList");
   const resourceDisclaimer = el("resourceDisclaimer");
   const retrySimulationBtn = el("retrySimulationBtn");
@@ -2057,6 +2067,12 @@ document.addEventListener("DOMContentLoaded", function () {
     finalScoreNumber.textContent = `${totalImpactScore} / 80`;
     impactSummaryText.textContent = `Your decisions show developing professional judgement in the ${simulation.role} role.`;
     badgeText.textContent = impact.badge;
+
+    if (badgeImage) {
+      badgeImage.src = badgeImageMap[simulation.role] || "";
+      badgeImage.alt = `${simulation.role} badge`;
+    }
+
     resourceDisclaimer.textContent = impact.disclaimer;
 
     resourceList.innerHTML = "";
