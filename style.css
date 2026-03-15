@@ -148,14 +148,14 @@ button {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex: 0 0 auto;
   min-width: 0;
 }
 
 .brand-logo-wrap {
-  width: 138px;
-  height: 82px;
+  width: 160px;
+  height: 110px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
