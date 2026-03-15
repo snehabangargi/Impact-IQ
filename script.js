@@ -133,6 +133,22 @@ document.addEventListener("DOMContentLoaded", function () {
     "Developer": "assets/badges/dev-badge.png"
   };
 
+  const simulationMusic = new Audio("assets/music/simulation-music.mp3");
+  simulationMusic.loop = true;
+  simulationMusic.volume = 0.35;
+
+  function playSimulationMusic() {
+    simulationMusic.currentTime = 0;
+    simulationMusic.play().catch(() => {
+      console.log("Autoplay blocked until user interaction.");
+    });
+  }
+
+  function stopSimulationMusic() {
+    simulationMusic.pause();
+    simulationMusic.currentTime = 0;
+  }
+
   const projectManagerSimulation = {
     role: "Project Manager",
     rooms: [
@@ -1853,6 +1869,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeDisclaimer() {
     hide(disclaimerModal);
     document.body.classList.remove("no-scroll");
+    stopSimulationMusic();
   }
 
   function openRoleModal() {
@@ -1865,6 +1882,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeRoleModal() {
     hide(roleModal);
     document.body.classList.remove("no-scroll");
+    stopSimulationMusic();
   }
 
   function openSimulation() {
@@ -1890,16 +1908,19 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.add("no-scroll");
     updateMetricLabels();
     renderRoom();
+    playSimulationMusic();
   }
 
   function closeSimulation() {
     hide(simulationModal);
     document.body.classList.remove("no-scroll");
+    stopSimulationMusic();
   }
 
   function closeImpact() {
     hide(impactModal);
     document.body.classList.remove("no-scroll");
+    stopSimulationMusic();
   }
 
   function getActiveRoom() {
@@ -2092,6 +2113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     show(simulationModal);
     updateMetricLabels();
     renderRoom();
+    playSimulationMusic();
   }
 
   function chooseAnotherRole() {
@@ -2104,6 +2126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.add("no-scroll");
     renderRolePicker();
     updateRoleSelectionState();
+    stopSimulationMusic();
   }
 
   function setupButtons() {
