@@ -147,28 +147,25 @@ button {
 .brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   flex: 0 0 auto;
-  min-width: 0;
 }
 
 .brand-logo-wrap {
-  width: auto;
-  height: auto;
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: none;
-  box-shadow: none;
+
+  width: 150px;   /* increased */
+  height: 80px;   /* increased */
+
   padding: 0;
-  overflow: visible;
+  margin: 0;
 }
 
 .brand-logo {
-  height: 88px;
-  width: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
 }
