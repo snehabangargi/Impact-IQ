@@ -134,12 +134,12 @@ button {
 /* Header */
 .navbar {
   position: sticky;
-  top: 14px;
+  top: 12px;
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
+  gap: 20px;
   padding: 12px 20px;
   border-radius: 20px;
 }
@@ -147,7 +147,7 @@ button {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex: 0 0 auto;
 }
 
@@ -183,12 +183,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 34px;
+  gap: 30px;
   flex: 1 1 auto;
   min-width: 0;
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .nav-links a {
