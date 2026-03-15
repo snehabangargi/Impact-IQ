@@ -147,7 +147,7 @@ button {
 .brand {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 10px;
   flex: 0 0 auto;
 }
 
@@ -157,7 +157,7 @@ button {
   justify-content: center;
 
   width: 150px;   /* increased */
-  height: 80px;   /* increased */
+  height: 120px;   /* increased */
 
   padding: 0;
   margin: 0;
