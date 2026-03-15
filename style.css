@@ -141,7 +141,7 @@ button {
   justify-content: space-between;
   gap: 24px;
   padding: 8px 24px;
-  min-height: 72px;
+  min-height: 84px;
   border-radius: 23px;
 }
 
@@ -154,8 +154,8 @@ button {
 }
 
 .brand-logo-wrap {
-  width: 110px;
-  height: 44px;
+  width: 143px;
+  height: 57px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -1250,8 +1250,8 @@ button {
   }
 
   .brand-logo-wrap {
-    width: 100px;
-    height: 40px;
+    width: 130px;
+    height: 52px;
   }
 
   .brand-logo {
