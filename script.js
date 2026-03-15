@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     ],
     impactScreen: {
-      title: "Simulation Debrief",
+      title: "Final Reflection",
       intro:
         "Your decisions influenced Team Collaboration, Stakeholder Impact, and Leadership Confidence.",
       subIntro:
