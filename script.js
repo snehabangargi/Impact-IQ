@@ -586,7 +586,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     ],
     impactScreen: {
-      title: "Simulation Debrief",
+      title: "Final Reflection",
       intro:
         "Your decisions influenced Team Collaboration, Sprint Flow, and Agile Discipline.",
       subIntro:
@@ -827,7 +827,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     ],
     impactScreen: {
-      title: "Simulation Debrief",
+      title: "Final Reflection",
       intro:
         "Your decisions influenced Requirement Clarity, Stakeholder Alignment, and Analysis Effectiveness.",
       subIntro:
@@ -1068,7 +1068,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     ],
     impactScreen: {
-      title: "Simulation Debrief",
+      title: "Final Reflection",
       intro:
         "Your decisions influenced Employee Wellbeing, Team Culture, and Organisational Trust.",
       subIntro:
@@ -1309,7 +1309,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     ],
     impactScreen: {
-      title: "Simulation Debrief",
+      title: "Final Reflection",
       intro:
         "Your decisions influenced Product Quality, Release Confidence, and Team Coordination.",
       subIntro:
@@ -1550,7 +1550,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     ],
     impactScreen: {
-      title: "Simulation Debrief",
+      title: "Final Reflection",
       intro:
         "Your decisions influenced Code Quality, Delivery Stability, and Team Collaboration.",
       subIntro:
