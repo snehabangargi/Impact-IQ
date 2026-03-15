@@ -978,6 +978,12 @@ button {
   margin-top: 24px;
 }
 
+.result-right {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
