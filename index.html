@@ -155,7 +155,7 @@
   <!-- Disclaimer Modal -->
   <div class="modal-overlay hidden" id="disclaimerModal">
     <div class="modal glass modal-medium">
-      <button class="modal-close" id="closeDisclaimer">×</button>
+      <button class="modal-close" id="closeDisclaimer" type="button">×</button>
 
       <div class="modal-header">
         <div class="modal-icon">🛡</div>
@@ -179,8 +179,8 @@
       </label>
 
       <div class="modal-actions">
-        <button class="btn btn-secondary" id="cancelDisclaimer">Cancel</button>
-        <button class="btn btn-primary" id="proceedDisclaimer" disabled>Proceed</button>
+        <button class="btn btn-secondary" id="cancelDisclaimer" type="button">Cancel</button>
+        <button class="btn btn-primary" id="proceedDisclaimer" type="button" disabled>Proceed</button>
       </div>
     </div>
   </div>
@@ -188,7 +188,7 @@
   <!-- Role Modal -->
   <div class="modal-overlay hidden" id="roleModal">
     <div class="modal glass modal-large">
-      <button class="modal-close" id="closeRoleModal">×</button>
+      <button class="modal-close" id="closeRoleModal" type="button">×</button>
 
       <div class="modal-header between">
         <div>
@@ -209,7 +209,7 @@
 
       <div class="sticky-actions">
         <p class="subtle">Choose a role to experience project challenges.</p>
-        <button class="btn btn-primary" id="startSimulationBtn" disabled>Start Simulation</button>
+        <button class="btn btn-primary" id="startSimulationBtn" type="button" disabled>Start Simulation</button>
       </div>
     </div>
   </div>
@@ -220,12 +220,12 @@
       <div class="simulation-top">
         <div>
           <p class="section-eyebrow left" id="simulationRoleLabel">Project Manager Simulation</p>
-          <h2 id="roomHeading">Room 1 – Mid-Sprint Request</h2>
+          <h2 id="roomHeading">Room 1 - Mid-Sprint Request</h2>
         </div>
 
         <div class="simulation-top-actions">
-          <button class="btn btn-secondary music-toggle-btn" id="musicToggle">🔊 Music</button>
-          <button class="modal-close sim-close" id="closeSimulation">×</button>
+          <button class="btn btn-secondary music-toggle-btn" id="musicToggle" type="button">🔊 Music</button>
+          <button class="modal-close sim-close" id="closeSimulation" type="button">×</button>
         </div>
       </div>
 
@@ -322,7 +322,9 @@
                     <span id="barLabelOne">Team Collaboration</span>
                     <span id="teamBarText">0</span>
                   </div>
-                  <div class="bar-track"><div class="bar-fill purple" id="teamBar"></div></div>
+                  <div class="bar-track">
+                    <div class="bar-fill purple" id="teamBar"></div>
+                  </div>
                 </div>
 
                 <div class="bar-group">
@@ -330,7 +332,9 @@
                     <span id="barLabelTwo">Stakeholder Impact</span>
                     <span id="stakeholderBarText">0</span>
                   </div>
-                  <div class="bar-track"><div class="bar-fill green" id="stakeholderBar"></div></div>
+                  <div class="bar-track">
+                    <div class="bar-fill green" id="stakeholderBar"></div>
+                  </div>
                 </div>
 
                 <div class="bar-group">
@@ -338,7 +342,9 @@
                     <span id="barLabelThree">Leadership Confidence</span>
                     <span id="leadershipBarText">0</span>
                   </div>
-                  <div class="bar-track"><div class="bar-fill blue" id="leadershipBar"></div></div>
+                  <div class="bar-track">
+                    <div class="bar-fill blue" id="leadershipBar"></div>
+                  </div>
                 </div>
               </div>
 
@@ -352,13 +358,14 @@
                 </div>
 
                 <div class="score-actions">
-                  <button class="btn btn-primary hidden" id="nextRoomBtn">Next Room</button>
-                  <button class="btn btn-secondary hidden" id="finishBtn">Finish Simulation</button>
+                  <button class="btn btn-primary hidden" id="nextRoomBtn" type="button">Next Room</button>
+                  <button class="btn btn-secondary hidden" id="finishBtn" type="button">Finish Simulation</button>
                 </div>
               </div>
             </div>
           </div>
-        </div><!-- result panel -->
+        </div>
+        <!-- result panel -->
       </div>
     </div>
   </div>
@@ -370,7 +377,7 @@
         <div>
           <p class="section-eyebrow left">Simulation Debrief</p>
         </div>
-        <button class="modal-close sim-close" id="closeImpactModal">×</button>
+        <button class="modal-close sim-close" id="closeImpactModal" type="button">×</button>
       </div>
 
       <div class="simulation-stack">
@@ -416,22 +423,23 @@
                 </div>
 
                 <div class="impact-actions">
-                  <button class="btn btn-primary" id="retrySimulationBtn">Try Simulation Again</button>
-                  <button class="btn btn-secondary" id="chooseAnotherRoleBtn">Choose Another Role</button>
+                  <button class="btn btn-primary" id="retrySimulationBtn" type="button">Try Simulation Again</button>
+                  <button class="btn btn-secondary" id="chooseAnotherRoleBtn" type="button">Choose Another Role</button>
                 </div>
               </div>
             </div>
           </div>
-        </div><!-- impact body -->
+        </div>
+        <!-- impact body -->
       </div>
     </div>
   </div>
 
   <!-- Background Music -->
   <audio id="simulationMusic" loop preload="auto">
-  <source src="assets/music/simulation-music.mp3" type="audio/mpeg" />
-</audio>
+    <source src="assets/music/simulation-music.mp3" type="audio/mpeg" />
+  </audio>
 
-<button id="musicToggle" class="music-toggle hidden" type="button" aria-label="Mute music" title="Mute music">🔊</button>
+  <script src="script.js"></script>
 </body>
 </html>
