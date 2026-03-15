@@ -133,22 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Developer": "assets/badges/dev-badge.png"
   };
 
-  const simulationMusic = new Audio("assets/music/simulation-music.mp3");
-  simulationMusic.loop = true;
-  simulationMusic.volume = 0.35;
-
-  function playSimulationMusic() {
-    simulationMusic.currentTime = 0;
-    simulationMusic.play().catch(() => {
-      console.log("Autoplay blocked until user interaction.");
-    });
-  }
-
-  function stopSimulationMusic() {
-    simulationMusic.pause();
-    simulationMusic.currentTime = 0;
-  }
-
   const projectManagerSimulation = {
     role: "Project Manager",
     rooms: [
@@ -1602,6 +1586,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentRoom = 1;
   let selectedOption = null;
   let totalImpactScore = 0;
+  let isMusicPlaying = false;
 
   const resultToneMap = {
     excellent: "excellent",
@@ -1702,6 +1687,72 @@ document.addEventListener("DOMContentLoaded", function () {
   const chooseAnotherRoleBtn = el("chooseAnotherRoleBtn");
   const closeImpactModal = el("closeImpactModal");
 
+  const simulationMusic = el("simulationMusic");
+  const musicToggleBtn = el("musicToggle");
+
+  if (simulationMusic) {
+    simulationMusic.volume = 0.35;
+  }
+
+  function updateMusicButton() {
+    if (!musicToggleBtn) return;
+
+    if (isMusicPlaying) {
+      musicToggleBtn.textContent = "🔊 Music";
+      musicToggleBtn.setAttribute("aria-label", "Pause music");
+      musicToggleBtn.setAttribute("title", "Pause music");
+    } else {
+      musicToggleBtn.textContent = "🔇 Music";
+      musicToggleBtn.setAttribute("aria-label", "Play music");
+      musicToggleBtn.setAttribute("title", "Play music");
+    }
+  }
+
+  function playSimulationMusic() {
+    if (!simulationMusic) return;
+
+    simulationMusic.play().then(() => {
+      isMusicPlaying = true;
+      updateMusicButton();
+    }).catch(() => {
+      console.log("Autoplay blocked until user interaction.");
+      isMusicPlaying = false;
+      updateMusicButton();
+    });
+  }
+
+  function pauseSimulationMusic() {
+    if (!simulationMusic) return;
+    simulationMusic.pause();
+    isMusicPlaying = false;
+    updateMusicButton();
+  }
+
+  function stopSimulationMusic() {
+    if (!simulationMusic) return;
+    simulationMusic.pause();
+    simulationMusic.currentTime = 0;
+    isMusicPlaying = false;
+    updateMusicButton();
+  }
+
+  function toggleSimulationMusic() {
+    if (!simulationMusic) return;
+
+    if (simulationMusic.paused) {
+      simulationMusic.play().then(() => {
+        isMusicPlaying = true;
+        updateMusicButton();
+      }).catch(() => {
+        console.log("Music playback blocked.");
+        isMusicPlaying = false;
+        updateMusicButton();
+      });
+    } else {
+      pauseSimulationMusic();
+    }
+  }
+
   function getRoleSimulation(role) {
     if (role === "Scrum Master") return scrumMasterSimulation;
     if (role === "Business Analyst") return businessAnalystSimulation;
@@ -1780,9 +1831,11 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <span class="hero-role-arrow">→</span>
       `;
+
       btn.addEventListener("click", function () {
         openDisclaimer(role.title);
       });
+
       heroRoleList.appendChild(btn);
     });
   }
@@ -1936,7 +1989,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateMetricLabels();
 
     simulationRoleLabel.textContent = `${simulation.role} Simulation`;
-    roomHeading.textContent = `Room ${room.roomNumber} – ${room.title}`;
+    roomHeading.textContent = `Room ${room.roomNumber} - ${room.title}`;
     missionTitle.textContent = room.mission;
     roomChip.textContent = `Room ${room.roomNumber}`;
 
@@ -2162,6 +2215,25 @@ document.addEventListener("DOMContentLoaded", function () {
     closeImpactModal?.addEventListener("click", closeImpact);
     retrySimulationBtn?.addEventListener("click", retrySimulation);
     chooseAnotherRoleBtn?.addEventListener("click", chooseAnotherRole);
+
+    musicToggleBtn?.addEventListener("click", toggleSimulationMusic);
+
+    if (simulationMusic) {
+      simulationMusic.addEventListener("play", function () {
+        isMusicPlaying = true;
+        updateMusicButton();
+      });
+
+      simulationMusic.addEventListener("pause", function () {
+        isMusicPlaying = false;
+        updateMusicButton();
+      });
+
+      simulationMusic.addEventListener("ended", function () {
+        isMusicPlaying = false;
+        updateMusicButton();
+      });
+    }
   }
 
   function setupSmoothScroll() {
@@ -2193,4 +2265,5 @@ document.addEventListener("DOMContentLoaded", function () {
   setupButtons();
   setupSmoothScroll();
   updateRoleSelectionState();
+  updateMusicButton();
 });
