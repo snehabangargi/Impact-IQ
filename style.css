@@ -400,6 +400,32 @@ button {
   position: relative;
 }
 
+/* Disclaimer modal header only */
+#disclaimerModal .modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding-right: 0;
+  position: relative;
+}
+
+#disclaimerModal .modal-header .modal-icon {
+  margin-bottom: 6px;
+}
+
+#disclaimerModal .modal-header .section-eyebrow {
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+#disclaimerModal .modal-header h3 {
+  margin: 0;
+  text-align: center;
+}
+
 .card-header {
   padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
